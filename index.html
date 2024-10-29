@@ -38,6 +38,9 @@
 				left: 0;
 				right: 0;
 			}
+			.content {
+				padding-bottom: 1.5em;
+			}
 			#header {
 				background: #111;
 			}
@@ -141,11 +144,11 @@
 				toolData.push({name: name, id: id, icon: icon, images: images, info: info, description: description, download: download, project: project});
 			}
 			
-			addApp("TinyTotp", pages[1], "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/refs/heads/master/deb-content/icon.png", ["https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Main.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Categories.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Import-Secret.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Import-Qr.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/AddSecret.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Edit-Totp.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Export-Secret.png"], "App to create 'Time based One Time Passwords'.", "TODO add description\\br\\This is the description.\\br\\\\br\\In multiple lines!", [{name: "TinyTotp.jar", src: "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp.jar"}, {name: "TinyTotp-4.0.1.deb", src: "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp-4.0.1.deb"}], "https://github.com/kryptonbutterfly/TinyTotp?tab=readme-ov-file#tinytotp");
-			addApp("Localizer4J", pages[2], "https://raw.githubusercontent.com/tinycodecrank/Localizer4J/master/resources/icon_82x82.png", [], "A Language file Editor with special sauce for java projects.", "", [{name: "Localizer4J.jar", src: "https://github.com/tinycodecrank/Localizer4J/releases/download/v2.4.0/Localizer4J.jar"}, {name: "Localizer4J-2.4.0.deb", src: "https://github.com/tinycodecrank/Localizer4J/releases/download/v2.4.0/Localizer4J-2.4.0.deb"}], "https://github.com/kryptonbutterfly/Localizer4J#localizer4j-");
-			addApp("CheckList", pages[3], "https://raw.githubusercontent.com/tinycodecrank/CheckList/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp", ["https://raw.githubusercontent.com/tinycodecrank/CheckList/master/md/Screenshot_CheckList.png"], "A primitive checklist app for android.", "", [{name: "CheckList.apk", src: "https://github.com/tinycodecrank/CheckList/releases/download/v1.0.0/CheckList.apk"}], "https://github.com/kryptonbutterfly/CheckList?tab=readme-ov-file#checklist");
+			addApp("TinyTotp", pages[1], "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/refs/heads/master/deb-content/icon.png", ["https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Main.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Categories.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Import-Secret.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Import-Qr.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/AddSecret.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Edit-Totp.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Export-Secret.png"], ["App to create 'Time based One Time Passwords'."], ["TODO add description", {type: "br"}, "This is the description.", {type: "br"}, {type: "br"}, "In multiple lines!"], [{name: "TinyTotp.jar", src: "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp.jar"}, {name: "TinyTotp-4.0.1.deb", src: "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp-4.0.1.deb"}], "https://github.com/kryptonbutterfly/TinyTotp?tab=readme-ov-file#tinytotp");
+			addApp("Localizer4J", pages[2], "https://raw.githubusercontent.com/tinycodecrank/Localizer4J/master/resources/icon_82x82.png", [], ["A Language file Editor with special sauce for java projects."], [], [{name: "Localizer4J.jar", src: "https://github.com/tinycodecrank/Localizer4J/releases/download/v2.4.0/Localizer4J.jar"}, {name: "Localizer4J-2.4.0.deb", src: "https://github.com/tinycodecrank/Localizer4J/releases/download/v2.4.0/Localizer4J-2.4.0.deb"}], "https://github.com/kryptonbutterfly/Localizer4J#localizer4j-");
+			addApp("CheckList", pages[3], "https://raw.githubusercontent.com/tinycodecrank/CheckList/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp", ["https://raw.githubusercontent.com/tinycodecrank/CheckList/master/md/Screenshot_CheckList.png"], ["A primitive checklist app for android."], [], [{name: "CheckList.apk", src: "https://github.com/tinycodecrank/CheckList/releases/download/v1.0.0/CheckList.apk"}], "https://github.com/kryptonbutterfly/CheckList?tab=readme-ov-file#checklist");
 			
-			addTool("CacheBuilder", pages[4], "https://raw.githubusercontent.com/kryptonbutterfly/CacheBuilder/master/icon.svg", [], "ByteCode manipulator used to decorate methods using \\a\\https://github.com/kryptonbutterfly/tinyCache\\@Cache\\@Cache\\ annotations.", "It can be used as a build target in your ide or as a maven plugin (requires version 3.0.0 or higher).", [{name: "cache_builder-3.0.0.jar", src: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar"}], "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#cachebuilder-");
+			addTool("CacheBuilder", pages[4], "https://raw.githubusercontent.com/kryptonbutterfly/CacheBuilder/master/icon.svg", [], ["ByteCode manipulator used to decorate methods using ", {type:"a", href:"https://github.com/kryptonbutterfly/tinyCache", alt:"@Cache", text:"@Cache"}, " annotations."], ["It can be used as a build target in your ", {type: "a", href: "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#install", alt: "ide", text:"ide"}, " or as a ", {type:"a", href: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar", alt:"maven plugin", text: "maven plugin"}, " (requires version 3.0.0 or higher)."], [{name: "cache_builder maven plugin", src: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar"}, {name: "eclipse build target setup", src: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0-setup.zip"}], "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#cachebuilder-");
 			
 			let slideIndex = 0;
 		
@@ -248,14 +251,21 @@
 				<a class="next" onclick="nextSlide(true)">❯</a>
 			</div>
 			<p id="app-description"/>
-			<table style="margin: 1em"><tr>
+			<div style="width: 100%; position: relative;">
+				<div id="app-downloads">
+					<a id="app-repository">
+						<img id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/" title="Github - kryptonbutterfly/"/>
+					</a>
+				</div>
+			</div>
+			<!-- <table style="margin: 1em"><tr>
 				<td id="app-downloads"/>
 				<td style="width:100%">
 					<a id="app-repository">
 						<img id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/" title="Github - kryptonbutterfly/"/>
 					</a>
 				</td>
-			</tr></table>
+			</tr></table> -->
 		</div>
 	</template>
 	<template id="slide-template">
@@ -281,43 +291,20 @@
 		}
 		
 		function addFormatText(element, text) {
-			const split = text.split("\\");
-			let controll = 0;
-			let component = null;
-			for (const part of split) {
-				if (component == null) {
-					if (controll == 0) {
-						element.appendChild(document.createTextNode(part));
-						controll = 1;
-					} else if (controll == 1) {
-						if (part == "") {
-							element.appendChild(document.createTextNode('\\'));
-							controll = 0;
-						} else if (part == "br") {
-							element.appendChild(document.createElement("br"));
-							controll = 0;
-						} else if (part == "a") {
-							component = {type: "a"}
-							controll = 2;
-						}
-					}
-				} else if (component.type == "a") {
-					if (controll == 2) {
-						component.href = part;
-						controll++;
-					} else if (controll == 3) {
-						component.alt = part;
-						controll++;
-					} else if (controll == 4) {
-						const link = document.createElement("a");
-						link.href = component.href;
-						link.alt = component.alt;
-						link.appendChild(document.createTextNode(part));
-						element.appendChild(link);
-						controll = 0;
-						component = null;
-					}
+			for (const part of text) {
+				if (typeof part == "string")
+					element.appendChild(document.createTextNode(part));
+				else if (part.type == "br")
+					element.appendChild(document.createElement("br"));
+				else if (part.type == "a") {
+					const link = document.createElement("a");
+					link.href = part.href;
+					link.alt = part.alt;
+					link.appendChild(document.createTextNode(part.text));
+					element.appendChild(link);
 				}
+				else
+					console.error("Unsupported type: ", part.type);
 			}
 		}
 		
