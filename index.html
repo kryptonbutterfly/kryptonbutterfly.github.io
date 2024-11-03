@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="dark">
 	<head>
 		<title>Kryptonbutterfly · Home</title>
 		<link rel="icon" type="image/x-icon" href="assets/kryptonbutterfly-improved_640-round.png"/>
@@ -7,7 +7,8 @@
 		<meta name="author" content="kryptonbutterfly"/>
 		<style>
 			:root {
-				--bg: #0A0A0A;
+				--bg-dark: #0A0A0A;
+				--bg-light: whitesmoke;
 				--min-content-width: 35em;
 				--home-border: #222;
 			}
@@ -15,10 +16,16 @@
 				border: 2px solid #F88;
 			}
 			html {
-				background: #000;
-				color: #DDD;
 				font-family: -apply-system, BlinkMaxSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 				font-size: 120%;
+			}
+			html.dark {
+				background: black;
+				color: #DDD;
+			}
+			html.light {
+				background: white;
+				color: #222;
 			}
 			body {
 				margin: 0;
@@ -28,7 +35,12 @@
 				min-width: min(var(--min-content-width), 100%);
 				max-width: 100%;
 				margin: auto;
-				background-color: var(--bg);
+			}
+			.content.light, .bg-overlay.light {
+				background-color: var(--bg-light);
+			}
+			.content.dark, .bg-overlay.dark {
+				background-color: var(--bg-dark);
 			}
 			.bg-overlay {
 				z-index: -1;
@@ -41,7 +53,10 @@
 			.content {
 				padding-bottom: 1.5em;
 			}
-			#header {
+			.header.light {
+				background: #EEE;
+			}
+			.header.dark {
 				background: #111;
 			}
 			#home {
@@ -58,13 +73,27 @@
 				top: 0.35em;
 				left: 50%;
 				transform: translate(-50%);
-				color: #eed490;
 				text-align: middle;
 			}
+			.a-button {
+				text-decoration: none;
+			}
+			.theme {
+				float: right;
+				width: 2em;
+				height: 2em;
+				margin: 0.75em;
+			}
 			#glow {
-			  color: #eed490;
 			  text-align: center;
-			  text-shadow: 0 0 0.5em #eed49066, 0 0 1em #DAA52066;
+			}
+			#glow.dark {
+			  color: #eed490;
+			  text-shadow: 0 0 0.5em #eed49066, 0 0 1em goldenrod;
+			}
+			#glow.light {
+			  color: #262626;
+			  text-shadow: 0 0 0.5em #262626, 0 0 1em gray;
 			}
 			#page-container {
 				margin: 0 0.75em;
@@ -88,6 +117,12 @@
 				margin: auto;
 				min-height: 56px;
 				background: dimgray;
+			}
+			#slideshow.dark {
+				background: dimgray;
+			}
+			#slideshow.light {
+				background: lightgray;
 			}
 			#slide {
 				display: none;
@@ -129,11 +164,24 @@
 				position: absolute;
 				top: 0;
 			}
+			#numbertext.dark {
+				color: whitesmoke;
+			}
+			#numbertext.light {
+				color: #0A0A0A;
+			}
 			#app-repo-icon {
 				float: right;
 			}
+			#app-repo-icon.light {
+				filter: invert(100%);
+			}
+			a {
+				color: aqua;
+			}
 		</style>
 		<script type="text/javascript1.5">
+			const themes = ["light", "dark"];
 			const pages = ["home", "tinytotp", "localizer4j", "checklist", "cachebuilder"];
 			const appData = [];
 			function addApp(name, id, icon, images, info, description, download, project) {
@@ -151,11 +199,51 @@
 			addTool("CacheBuilder", pages[4], "https://raw.githubusercontent.com/kryptonbutterfly/CacheBuilder/master/icon.svg", [], ["ByteCode manipulator used to decorate methods using ", {type:"a", href:"https://github.com/kryptonbutterfly/tinyCache", alt:"@Cache", text:"@Cache"}, " annotations."], ["It can be used as a build target in your ", {type: "a", href: "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#install", alt: "ide", text:"ide"}, " or as a ", {type:"a", href: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar", alt:"maven plugin", text: "maven plugin"}, " (requires version 3.0.0 or higher)."], [{name: "cache_builder maven plugin", src: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar"}, {name: "eclipse build target setup", src: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0-setup.zip"}], "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#cachebuilder-");
 			
 			let slideIndex = 0;
+			
+			function setTheme(theme) {
+				console.assert(themes.includes(theme), `"${theme}" is not a valid theme.`);
+				localStorage.setItem("theme", theme);
+				showTheme();
+			}
+			
+			function currentTheme() {
+				if (localStorage.hasOwnProperty("theme"))
+					return localStorage.getItem("theme");
+				return themes[1];
+			}
+			
+			function showTheme()
+			{
+				const theme = currentTheme();
+				for (const t of themes) {
+					if (t != theme) {
+						const elements = document.getElementsByClassName(t);
+						for (let i = elements.length - 1; i >= 0; i--)
+							elements[i].classList.replace(t, theme);
+					}
+				}
+				for (const img of document.getElementsByClassName("theme")) {
+					if (img.id == theme)
+						img.style.display = "";
+					else 
+						img.style.display = "none";
+				}
+			}
+			
+			function switchTheme() {
+				const theme = currentTheme();
+				const themeIndex = (themes.indexOf(theme) + 1 + themes.length) % themes.length;
+				setTheme(themes[themeIndex]);
+			}
 		
+			function currPage() {
+				return new URLSearchParams(location.search).get('page') ?? pages[0];
+			}
+			
 			function showPage(target) {
 				slideIndex = 0;
 				if (!target)
-					target = new URLSearchParams(location.search).get('page') ?? pages[0];
+					target = currPage();
 				target = "page-" + target;
 				for (const p of pages) {
 					const id = "page-" + p; 
@@ -177,7 +265,7 @@
 			}
 			
 			function showSlide() {
-				page = new URLSearchParams(location.search).get('page') ?? pages[0];
+				page = currPage();
 				const container = document.getElementById("page-" + page);
 				for (const app of appData) {
 					if (app.id == page) {
@@ -196,13 +284,17 @@
 		</script>
 	</head>
 	<body>
-		<div class="bg-overlay"></div>
-		<div class="content">
-			<div id="header">
-				<a href="javascript:void(0)" alt="home" title="home" onclick="switchPage('home');")>
-					<img id="home" src="assets/kryptonbutterfly-improved-transparent_128.png"/>
+		<div class="bg-overlay dark"></div>
+		<div class="content dark">
+			<div class="header dark">
+				<a class="a-button" href="javascript:void(0)" alt="home" title="home" onclick="switchPage('home');")>
+					<img class="dark" id="home" src="assets/kryptonbutterfly-improved-transparent_128.png"/>
 				</a>
-				<h1 class="header-title" id="glow">Kryptonbutterfly</h1>
+				<h1 class="header-title dark" id="glow">Kryptonbutterfly</h1>
+				<a class="a-button" href="javascript:void(0)" alt="change Theme" title="change Theme" onclick="switchTheme();">
+					<img class="theme" id="dark" src="assets/light-theme.svg", style="display: none"/>
+					<img class="theme" id="light" src="assets/dark-theme.svg"/>
+				</a>
 			</div>
 			<noscript>
 				<div style="border: 3px solid #F00; border-radius: 15px; background: #F00">
@@ -246,7 +338,7 @@
 				<td><h2 id="app-name"></h2></td>
 			</tr></table>
 			<p id="app-info"/>
-			<div id="slideshow">
+			<div id="slideshow" class="dark">
 				<a class="prev" onclick="nextSlide(false)">❮</a>
 				<a class="next" onclick="nextSlide(true)">❯</a>
 			</div>
@@ -254,23 +346,15 @@
 			<div style="width: 100%; position: relative;">
 				<div id="app-downloads">
 					<a id="app-repository">
-						<img id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/" title="Github - kryptonbutterfly/"/>
+						<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/" title="Github - kryptonbutterfly/"/>
 					</a>
 				</div>
 			</div>
-			<!-- <table style="margin: 1em"><tr>
-				<td id="app-downloads"/>
-				<td style="width:100%">
-					<a id="app-repository">
-						<img id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/" title="Github - kryptonbutterfly/"/>
-					</a>
-				</td>
-			</tr></table> -->
 		</div>
 	</template>
 	<template id="slide-template">
 		<div id="slide">
-			<div id="numbertext"></div>
+			<div id="numbertext" class="dark"></div>
 			<img id="img"/>
 		</div>
 	</template>
@@ -363,6 +447,7 @@
 				createPreview("Tools", d);
 				createAppPage(d);
 			}
+			showTheme();
 			showPage();
 		});
 	</script>
