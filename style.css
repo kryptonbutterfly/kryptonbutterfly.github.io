@@ -1,0 +1,179 @@
+:root {
+	--bg-dark: #0A0A0A;
+	--bg-light: whitesmoke;
+	--min-content-width: 35em;
+	--home-border: #222;
+}
+#debug {
+	border: 2px solid #F88;
+}
+html {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+	font-size: 120%;
+	background: black;
+	color: #DDD;
+}
+html.dark a {
+	color: aqua;
+}
+html.light {
+	background: white;
+	color: #222;
+}
+body {
+	margin: 0;
+}
+.bg-overlay {
+	z-index: -1;
+	display: block;
+	position: fixed;
+	height: 100%;
+	left: 0;
+	right: 0;
+}
+.content {
+	padding-bottom: 1.5em;
+}
+.content, .bg-overlay {
+	width: max(var(--min-content-width), 50%);
+	min-width: min(var(--min-content-width), 100%);
+	max-width: 100%;
+	margin: auto;
+	background-color: var(--bg-dark);
+}
+.content.light, .bg-overlay.light {
+	background-color: var(--bg-light);
+}
+.header {
+	background: #111;
+}
+.header.light {
+	background: #EEE;
+}
+#home {
+	width: 4em;
+	border: 0.12em solid var(--home-border);
+	border-radius: 1.2em;
+	padding: 0.3em;
+	margin: 0.75em;
+	background-color: #141414;
+}
+.header-title {
+	display: flex;
+	position: absolute;
+	top: 0.35em;
+	left: 50%;
+	transform: translate(-50%);
+}
+.a-button {
+	text-decoration: none;
+}
+.theme {
+	float: right;
+	width: 2em;
+	height: 2em;
+	margin: 0.75em;
+}
+#glow {
+  text-align: center;
+  color: #eed490;
+  text-shadow: 0 0 0.5em #eed49066, 0 0 1em goldenrod;
+}
+#glow.light {
+  color: #262626;
+  text-shadow: 0 0 0.5em #26262666, 0 0 1em gray;
+}
+#page-container {
+	margin: 0 0.75em;
+}
+.project {
+	border-radius: 15px;
+	background-color: #141414;
+	padding: 0.5em;
+}
+.project.light {
+	background-color: #EBEBEB;
+}
+#app-icon {
+	width: 3em;
+	margin-right: 1em;
+}
+#app-info {
+	margin: 5px;
+}
+#slideshow {
+	position: relative;
+	margin: auto;
+	min-height: 56px;
+	background: dimgray;
+}
+#slideshow.light {
+	background: lightgray;
+}
+#slide {
+	display: none;
+}
+#img {
+	max-width: 100%;
+	max-height: 32em;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+.prev,
+.next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	color: white !important;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.3s ease;
+	transform: translate(0, -50%);
+	user-select: none;
+}
+.prev {
+	border-radius: 0 3px 3px 0;
+	left: 0;
+}
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+	background-color: #000000CC;
+}
+#numbertext {
+	color: whitesmoke;
+	font-size: 14px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+#numbertext.light {
+	color: #0A0A0A;
+}
+#app-repo-icon {
+	float: right;
+}
+#app-repo-icon.light {
+	filter: invert(100%);
+}
+#h-div {
+	border-top: 1px solid gray;
+}
+@media (pointer: coarse) {
+	h1 {
+		font-size: 100%;
+	}
+	#home {
+		width: 2em;
+		border-radius: 0.6em;
+	}
+	.header-title {
+		top: 0.7em;
+	}
+}

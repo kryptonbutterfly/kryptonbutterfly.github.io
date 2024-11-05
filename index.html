@@ -5,283 +5,13 @@
 		<link rel="icon" type="image/x-icon" href="assets/kryptonbutterfly-improved_640-round.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<meta name="author" content="kryptonbutterfly"/>
-		<style>
-			:root {
-				--bg-dark: #0A0A0A;
-				--bg-light: whitesmoke;
-				--min-content-width: 35em;
-				--home-border: #222;
-			}
-			#debug {
-				border: 2px solid #F88;
-			}
-			html {
-				font-family: -apply-system, BlinkMaxSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-				font-size: 120%;
-			}
-			html.dark {
-				background: black;
-				color: #DDD;
-			}
-			html.light {
-				background: white;
-				color: #222;
-			}
-			body {
-				margin: 0;
-			}
-			.content, .bg-overlay {
-				width: max(var(--min-content-width), 50%);
-				min-width: min(var(--min-content-width), 100%);
-				max-width: 100%;
-				margin: auto;
-			}
-			.content.light, .bg-overlay.light {
-				background-color: var(--bg-light);
-			}
-			.content.dark, .bg-overlay.dark {
-				background-color: var(--bg-dark);
-			}
-			.bg-overlay {
-				z-index: -1;
-				display: block;
-				position: fixed;
-				height: 100%;
-				left: 0;
-				right: 0;
-			}
-			.content {
-				padding-bottom: 1.5em;
-			}
-			.header.light {
-				background: #EEE;
-			}
-			.header.dark {
-				background: #111;
-			}
-			#home {
-				width: 4em;
-				border: 0.12em solid var(--home-border);
-				border-radius: 1.2em;
-				padding: 0.3em;
-				margin: 0.75em;
-				background-color: #141414;
-			}
-			.header-title {
-				display: flex;
-				position: absolute;
-				top: 0.35em;
-				left: 50%;
-				transform: translate(-50%);
-				text-align: middle;
-			}
-			.a-button {
-				text-decoration: none;
-			}
-			.theme {
-				float: right;
-				width: 2em;
-				height: 2em;
-				margin: 0.75em;
-			}
-			#glow {
-			  text-align: center;
-			}
-			#glow.dark {
-			  color: #eed490;
-			  text-shadow: 0 0 0.5em #eed49066, 0 0 1em goldenrod;
-			}
-			#glow.light {
-			  color: #262626;
-			  text-shadow: 0 0 0.5em #262626, 0 0 1em gray;
-			}
-			#page-container {
-				margin: 0 0.75em;
-			}
-			#app-header {}
-			#app-preview-container {
-				border-radius: 5px;
-				min-height: 10px;
-			}
-			.project {
-				margin: 0.5em;
-			}
-			#app-icon {
-				width: 3em;
-			}
-			#app-info {
-				margin: 5px;
-			}
-			#slideshow {
-				position: relative;
-				margin: auto;
-				min-height: 56px;
-				background: dimgray;
-			}
-			#slideshow.dark {
-				background: dimgray;
-			}
-			#slideshow.light {
-				background: lightgray;
-			}
-			#slide {
-				display: none;
-			}
-			#img {
-				max-width: 100%;
-				max-height: 32em;
-				vertical-align: middle;
-				margin-left: auto;
-				margin-right: auto;
-				display: block;
-			}
-			.prev,
-			.next {
-				cursor: pointer;
-				position: absolute;
-				top: 50%;
-				width: auto;
-				padding: 16px;
-				color: white;
-				font-weight: bold;
-				font-size: 18px;
-				transition: 0.6s ease;
-				border-radius: 0 3px 3px 0;
-				user-select: none;
-				transform: translate(0, -50%);
-			}
-			.next {
-				right: 0;
-				border-radius: 3px 0 0 3px;
-			}
-			.prev:hover, .next:hover {
-				background-color: #000000CC;
-			}
-			#numbertext {
-				color: whitesmoke;
-				font-size: 14px;
-				padding: 8px 12px;
-				position: absolute;
-				top: 0;
-			}
-			#numbertext.dark {
-				color: whitesmoke;
-			}
-			#numbertext.light {
-				color: #0A0A0A;
-			}
-			#app-repo-icon {
-				float: right;
-			}
-			#app-repo-icon.light {
-				filter: invert(100%);
-			}
-			a {
-				color: aqua;
-			}
-		</style>
-		<script type="text/javascript1.5">
-			const themes = ["light", "dark"];
-			const pages = ["home", "tinytotp", "localizer4j", "checklist", "cachebuilder"];
-			const appData = [];
-			function addApp(name, id, icon, images, info, description, download, project) {
-				appData.push({name: name, id: id, icon: icon, images: images, info: info, description: description, download: download, project: project});
-			}
-			const toolData = [];
-			function addTool(name, id, icon, images, info, description, download, project) {
-				toolData.push({name: name, id: id, icon: icon, images: images, info: info, description: description, download: download, project: project});
-			}
-			
-			addApp("TinyTotp", pages[1], "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/refs/heads/master/deb-content/icon.png", ["https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Main.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Categories.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Import-Secret.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Import-Qr.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/AddSecret.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Edit-Totp.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Export-Secret.png"], ["App to create 'Time based One Time Passwords'."], ["TODO add description", {type: "br"}, "This is the description.", {type: "br"}, {type: "br"}, "In multiple lines!"], [{name: "TinyTotp.jar", src: "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp.jar"}, {name: "TinyTotp-4.0.1.deb", src: "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp-4.0.1.deb"}], "https://github.com/kryptonbutterfly/TinyTotp?tab=readme-ov-file#tinytotp");
-			addApp("Localizer4J", pages[2], "https://raw.githubusercontent.com/tinycodecrank/Localizer4J/master/resources/icon_82x82.png", [], ["A Language file Editor with special sauce for java projects."], [], [{name: "Localizer4J.jar", src: "https://github.com/tinycodecrank/Localizer4J/releases/download/v2.4.0/Localizer4J.jar"}, {name: "Localizer4J-2.4.0.deb", src: "https://github.com/tinycodecrank/Localizer4J/releases/download/v2.4.0/Localizer4J-2.4.0.deb"}], "https://github.com/kryptonbutterfly/Localizer4J#localizer4j-");
-			addApp("CheckList", pages[3], "https://raw.githubusercontent.com/tinycodecrank/CheckList/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp", ["https://raw.githubusercontent.com/tinycodecrank/CheckList/master/md/Screenshot_CheckList.png"], ["A primitive checklist app for android."], [], [{name: "CheckList.apk", src: "https://github.com/tinycodecrank/CheckList/releases/download/v1.0.0/CheckList.apk"}], "https://github.com/kryptonbutterfly/CheckList?tab=readme-ov-file#checklist");
-			
-			addTool("CacheBuilder", pages[4], "https://raw.githubusercontent.com/kryptonbutterfly/CacheBuilder/master/icon.svg", [], ["ByteCode manipulator used to decorate methods using ", {type:"a", href:"https://github.com/kryptonbutterfly/tinyCache", alt:"@Cache", text:"@Cache"}, " annotations."], ["It can be used as a build target in your ", {type: "a", href: "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#install", alt: "ide", text:"ide"}, " or as a ", {type:"a", href: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar", alt:"maven plugin", text: "maven plugin"}, " (requires version 3.0.0 or higher)."], [{name: "cache_builder maven plugin", src: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar"}, {name: "eclipse build target setup", src: "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0-setup.zip"}], "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#cachebuilder-");
-			
-			let slideIndex = 0;
-			
-			function setTheme(theme) {
-				console.assert(themes.includes(theme), `"${theme}" is not a valid theme.`);
-				localStorage.setItem("theme", theme);
-				showTheme();
-			}
-			
-			function currentTheme() {
-				if (localStorage.hasOwnProperty("theme"))
-					return localStorage.getItem("theme");
-				return themes[1];
-			}
-			
-			function showTheme()
-			{
-				const theme = currentTheme();
-				for (const t of themes) {
-					if (t != theme) {
-						const elements = document.getElementsByClassName(t);
-						for (let i = elements.length - 1; i >= 0; i--)
-							elements[i].classList.replace(t, theme);
-					}
-				}
-				for (const img of document.getElementsByClassName("theme")) {
-					if (img.id == theme)
-						img.style.display = "";
-					else 
-						img.style.display = "none";
-				}
-			}
-			
-			function switchTheme() {
-				const theme = currentTheme();
-				const themeIndex = (themes.indexOf(theme) + 1 + themes.length) % themes.length;
-				setTheme(themes[themeIndex]);
-			}
-		
-			function currPage() {
-				return new URLSearchParams(location.search).get('page') ?? pages[0];
-			}
-			
-			function showPage(target) {
-				slideIndex = 0;
-				if (!target)
-					target = currPage();
-				target = "page-" + target;
-				for (const p of pages) {
-					const id = "page-" + p; 
-					const hide = target == id ? 'block' : 'none';
-					document.getElementById(id).style.display = hide;
-				}
-			}
-			
-			function switchPage(target) {
-				const newUrl = location.protocol + "//" + location.host + location.pathname + "?page=" + target;
-				history.pushState({path:newUrl}, '', newUrl);
-				slideIndex = 0;
-				showPage(target);
-			}
-			
-			function nextSlide(forward) {
-				slideIndex += forward ? 1 : -1;
-				showSlide();
-			}
-			
-			function showSlide() {
-				page = currPage();
-				const container = document.getElementById("page-" + page);
-				for (const app of appData) {
-					if (app.id == page) {
-						const count = app.images.length;
-						slideIndex = (slideIndex + count) % count;
-						let index = 0;
-						for (const slide of container.querySelectorAll("div#slide"))
-						{
-							slide.style.display = index == slideIndex ? "block" : "none";
-							index++;
-						}
-						return;
-					}
-				}
-			}
-		</script>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="style.css"/>
+		<script src="content.js"></script>
+		<script src="validate_content.js"></script>
+		<script src="theme.js"></script>
+		<script src="page.js"></script>
+		<script src="slide.js"></script>
 	</head>
 	<body>
 		<div class="bg-overlay dark"></div>
@@ -305,13 +35,15 @@
 				<div id="page-home">
 					<details>
 						<summary><h2 style="display: inline-block">Applications</h2></summary>
-						</hr>
-						<div class="project", id="Applications"></div>
+						<div class="project dark", id="Applications"></div>
 					</details>
 					<details>
 						<summary><h2 style="display: inline-block">Tools</h2></summary>
-						</hr>
-						<div class="project", id="Tools"></div>
+						<div class="project dark", id="Tools"></div>
+					</details>
+					<details>
+						<summary><h2 style="display: inline-block">Libraries</h2></summary>
+						<div class="project dark" id="Libraries"></div>
 					</details>
 				</div>
 			</div>
@@ -322,19 +54,16 @@
 			<a href="javascript:void(0)" id="app-page-link">
 				<table><tr>
 					<td><img id="app-icon"/></td>
-					<td/><td/>
 					<td><h2 id="app-name"></h2></td>
 				</tr></table>
 			</a>
 			<p id="app-info"></p>
-			<div style="border-top: 1px solid gray;"></div>
 		</div>
 	</template>
 	<template id="app-page-template">
 		<div id="app-page-container">
 			<table><tr>
 				<td><img id="app-icon"/></td>
-				<td/><td/>
 				<td><h2 id="app-name"></h2></td>
 			</tr></table>
 			<p id="app-info"/>
@@ -358,98 +87,6 @@
 			<img id="img"/>
 		</div>
 	</template>
-	<script type="text/javascript1.5">		
-		function createPreview(categoryName, data) {
-			const temp = document.getElementById("app-preview-template").content.cloneNode(true);
-			const container = temp.getElementById("app-preview-container");
-			const link = container.querySelector("#app-page-link");
-			link.alt = data.name;
-			link.title = data.name;
-			link.onclick = (e) => switchPage(data.id);
-			const img = link.querySelector("#app-icon");
-			img.src = data.icon;
-			img.alt = data.name;
-			link.querySelector("#app-name").appendChild(document.createTextNode(data.name));
-			addFormatText(container.querySelector("#app-info"), data.info);
-			document.getElementById(categoryName).appendChild(temp);
-		}
-		
-		function addFormatText(element, text) {
-			for (const part of text) {
-				if (typeof part == "string")
-					element.appendChild(document.createTextNode(part));
-				else if (part.type == "br")
-					element.appendChild(document.createElement("br"));
-				else if (part.type == "a") {
-					const link = document.createElement("a");
-					link.href = part.href;
-					link.alt = part.alt;
-					link.appendChild(document.createTextNode(part.text));
-					element.appendChild(link);
-				}
-				else
-					console.error("Unsupported type: ", part.type);
-			}
-		}
-		
-		function createAppPage(data) {
-			const temp = document.getElementById("app-page-template").content.cloneNode(true);
-			const container = temp.getElementById("app-page-container");
-			const icon = container.querySelector("#app-icon");
-			icon.src = data.icon;
-			icon.alt = data.name;
-			container.querySelector("#app-name").appendChild(document.createTextNode(data.name));
-			addFormatText(container.querySelector("#app-info"), data.info);
-			const slideshow = container.querySelector("#slideshow");
-			if (!data.images || data.images.length == 0) {
-				slideshow.style.display = "none";
-			} else {
-				slideshow.style.display = "block";
-				let count = 1;
-				for (image of data.images) {
-					const slide = document.getElementById("slide-template").content.cloneNode(true);
-					slide.querySelector("#img").src = image;
-					slide.querySelector("#numbertext").appendChild(document.createTextNode(count + " / " + data.images.length));
-					if (count == 1) {
-						slide.getElementById("slide").style.display = "block";
-					}
-					slideshow.appendChild(slide);
-					count++;
-				}
-			}
-			addFormatText(container.querySelector("#app-description"), data.description);
-			for (const dl of data.download) {
-				const link = document.createElement("a");
-				link.href = dl.src;
-				link.appendChild(document.createTextNode(dl.name));
-				link.appendChild(document.createElement("br"));
-				container.querySelector("#app-downloads").appendChild(link);
-			}
-			const repo = container.querySelector("#app-repository");
-			repo.href = data.project;
-			const repoIcon = repo.querySelector("#app-repo-icon");
-			repoIcon.alt += data.name;
-			repoIcon.title += data.name;
-			const appPage = document.createElement("div");
-			appPage.id = "page-" + data.id;
-			appPage.appendChild(temp);
-			pageContainer = document.getElementById("page-container");
-			pageContainer.appendChild(appPage);
-		}
-		
-		window.addEventListener("popstate", function(event) { showPage(); });
-		document.addEventListener("DOMContentLoaded", () => {
-			for (const d of appData) {
-				createPreview("Applications", d);
-				createAppPage(d);
-			}
-			for (const d of toolData) {
-				createPreview("Tools", d);
-				createAppPage(d);
-			}
-			showTheme();
-			showPage();
-		});
-	</script>
+	<script src="build-dom.js"></script>
 </html>
 
