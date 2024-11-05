@@ -165,15 +165,19 @@ body {
 #h-div {
 	border-top: 1px solid gray;
 }
+.spoiler {
+	display: inline-block;
+	margin-left: 0.2em;
+}
 @media (pointer: coarse) {
 	h1 {
-		font-size: 100%;
+		font-size: 150%;
 	}
 	#home {
 		width: 2em;
 		border-radius: 0.6em;
 	}
 	.header-title {
-		top: 0.7em;
+		top: 0.2em;
 	}
 }
