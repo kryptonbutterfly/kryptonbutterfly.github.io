@@ -18,11 +18,11 @@
 		<div class="bg-overlay dark"></div>
 		<div class="content dark">
 			<div class="header dark">
-				<a class="a-button suppress-href" href="?page=home" alt="home" title="home" onclick="switchPage('home');")>
+				<a class="a-button" href="?page=home" alt="home" title="home" onclick="switchPage(event, 'home');")>
 					<img class="dark" id="home" src="assets/kryptonbutterfly-improved-transparent_128.png" alt="home"/>
 				</a>
 				<h1 class="header-title dark" id="glow">Kryptonbutterfly</h1>
-				<a class="a-button suppress-href" href="#" alt="change Theme" title="change Theme" onclick="switchTheme();">
+				<a class="a-button" href="#" alt="change Theme" title="change Theme" onclick="switchTheme(event);">
 					<img class="theme" id="dark" src="assets/light-theme.svg", style="display: none" alt="enable light theme"/>
 					<img class="theme" id="light" src="assets/dark-theme.svg" alt="enable dark theme"/>
 				</a>
@@ -52,7 +52,7 @@
 	</body>
 	<template id="app-preview-template">
 		<div id="app-preview-container">
-			<a class="suppress-href" href="javascript:void(0)" id="app-page-link">
+			<a id="app-page-link">
 				<table><tr>
 					<td><img id="app-icon"/></td>
 					<td><h2 id="app-name"></h2></td>

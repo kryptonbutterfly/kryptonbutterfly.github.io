@@ -23,7 +23,8 @@ function showPage(target) {
 			return setTitle(app.name);
 }
 
-function switchPage(target) {
+function switchPage(event, target) {
+	event.preventDefault();
 	const newUrl = location.protocol + "//" + location.host + location.pathname + "?page=" + target;
 	history.pushState({path:newUrl}, '', newUrl);
 	slideIndex = 0;
