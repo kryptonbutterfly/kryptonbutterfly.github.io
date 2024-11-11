@@ -26,6 +26,19 @@ const appData = [{
 		{name: "Localizer4J-2.4.0.deb", src: "https://github.com/tinycodecrank/Localizer4J/releases/download/v2.4.0/Localizer4J-2.4.0.deb"}],
 		project: "https://github.com/kryptonbutterfly/Localizer4J#localizer4j-"
 	}, {
+		name: "CopyCat",
+		id: "copycat",
+		icon: "https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/deb-content/icon.svg",
+		images: [
+			"https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/md/resources/CopyCat_main.png",
+			"https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/md/resources/Import.png"],
+		info: ["A Desktop QR-Code Scanner using the devices webcam."],
+		description: ["An application to generate a qr code from clipboard content or scan a qr code via camera and add the content to the clipboard."],
+		download: [
+			{name: "CopyCat.jar", src: "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.0/CopyCat.jar"},
+			{name: "copy-cat-1.0.0.deb", src: "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.0/copy-cat-1.0.0.de"}],
+		project: "https://github.com/kryptonbutterfly/CopyCat?tab=readme-ov-file#copycat"
+	}, {
 		name: "CheckList",
 		id: "checklist",
 		icon: "https://raw.githubusercontent.com/tinycodecrank/CheckList/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
