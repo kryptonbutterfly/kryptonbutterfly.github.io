@@ -42,7 +42,7 @@ const appData = [{
 		name: "CheckList",
 		id: "checklist",
 		icon: "https://raw.githubusercontent.com/tinycodecrank/CheckList/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
-		images: ["https://raw.githubusercontent.com/tinycodecrank/CheckList/master/md/Screenshot_CheckList.png"],
+		images: ["https://raw.githubusercontent.com/tinycodecrank/CheckList/master/md/Screenshot_CheckList.webp"],
 		info: ["A primitive checklist app for android."],
 		description: [],
 		download: [{name: "CheckList.apk", src: "https://github.com/tinycodecrank/CheckList/releases/download/v1.0.0/CheckList.apk"}],
