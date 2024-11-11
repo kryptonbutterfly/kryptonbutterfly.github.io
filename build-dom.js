@@ -9,6 +9,7 @@ function createPreview(categoryName, data) {
 	const container = temp.getElementById("app-preview-container");
 	const link = container.querySelector("#app-page-link");
 	link.alt = link.title = data.name;
+	link.href = "?page=" + data.id;
 	link.onclick = (e) => switchPage(data.id);
 	const img = link.querySelector("#app-icon");
 	img.src = data.icon;
@@ -100,6 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	for (const d of appData) build("Applications", d);
 	for (const d of toolData) build("Tools", d);
 	for (const d of libData) build("Libraries", d);
+	for (const e of document.getElementsByClassName("suppress-href"))
+		e.addEventListener("click", event => event.preventDefault());
 	showTheme();
 	showPage();
 });
