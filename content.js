@@ -30,8 +30,8 @@ const appData = [{
 		id: "copycat",
 		icon: "https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/deb-content/icon.svg",
 		images: [
-			"https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/md/resources/CopyCat_main.png",
-			"https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/md/resources/Import.png"],
+			"https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/md/resources/CopyCat_main.webp",
+			"https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/md/resources/Import.webp"],
 		info: ["A Desktop QR-Code Scanner using the devices webcam."],
 		description: ["An application to generate a qr code from clipboard content or scan a qr code via camera and add the content to the clipboard."],
 		download: [
