@@ -52,6 +52,7 @@ body {
 }
 #home {
 	width: 4em;
+	height: 4em;
 	border: 0.12em solid var(--home-border);
 	border-radius: 1.2em;
 	padding: 0.3em;
