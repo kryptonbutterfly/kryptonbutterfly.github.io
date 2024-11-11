@@ -1,7 +1,7 @@
 const appData = [{
 		name: "TinyTotp",
 		id: "tinytotp",
-		icon: "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/refs/heads/master/deb-content/icon.png",
+		icon: "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/src/assets/icon.svg",
 		images: [
 			"https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Main.png",
 			"https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Categories.png", "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Import-Secret.png",
@@ -17,7 +17,7 @@ const appData = [{
 	}, {
 		name: "Localizer4J",
 		id: "localizer4j",
-		icon: "https://raw.githubusercontent.com/tinycodecrank/Localizer4J/master/resources/icon_82x82.png",
+		icon: "https://raw.githubusercontent.com/kryptonbutterfly/Localizer4J/master/src/assets/icon.svg",
 		images: [],
 		info: ["A Language file Editor with special sauce for java projects."],
 		description: [],
