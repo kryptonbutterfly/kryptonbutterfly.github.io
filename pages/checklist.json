@@ -1,0 +1,16 @@
+{
+	"name": "CheckList",
+	"id": "checklist",
+	"icon": "https://raw.githubusercontent.com/tinycodecrank/CheckList/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
+	"images": [{
+		"src": "https://raw.githubusercontent.com/tinycodecrank/CheckList/master/md/Screenshot_CheckList.webp",
+		"alt": "The main view of the app.",
+		"title": "Main View"
+	}],
+	"info": "A primitive checklist app for android.",
+	"downloads": [{
+		"name": "CheckList.apk",
+		"src": "https://github.com/kryptonbutterfly/CheckList/releases/download/v1.1.0/CheckList.apk"
+	}],
+	"repo_link": "https://github.com/kryptonbutterfly/CheckList?tab=readme-ov-file#checklist"
+}

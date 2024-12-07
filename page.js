@@ -1,4 +1,4 @@
-function currPage() { return new URLSearchParams(location.search).get('page') ?? pages[0]; }
+function currPage() { return new URLSearchParams(location.search).get('page') ?? "home"; }
 
 function setTitle(target) {
 	document.title = "Kryptonbutterfly · " + target;
@@ -8,19 +8,14 @@ function showPage(target) {
 	slideIndex = 0;
 	if (!target)
 		target = currPage();
-	for (const p of pages) {
-		const hide = target == p ? 'block' : 'none';
-		document.getElementById("page-" + p).style.display = hide;
+	for (const [id, name] of pages.entries()) {
+		let hide = 'none';
+		if (target == id) {
+			hide = 'block';
+			document.title = `Kryptonbutterfly · ${name}`;
+		}
+		document.getElementById(`page-${id}`).style.display = hide;
 	}
-	for (const app of appData)
-		if (app.id == target)
-			return setTitle(app.name);
-	for (const app of toolData)
-		if (app.id == target)
-			return setTitle(app.name);
-	for (const app of libData)
-		if (app.id == target)
-			return setTitle(app.name);
 }
 
 function switchPage(event, target) {

@@ -5,14 +5,14 @@
 		<link rel="icon" type="image/x-icon" href="assets/kryptonbutterfly-improved_640-round.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<meta name="author" content="kryptonbutterfly"/>
-		<meta name="description" content="This website enumerates some the applications, tools and libraries I developed myself."/>
+		<meta name="description" content="An overview of kryptonbutterfly's applications, tools and libraries."/>
 		<meta charset="UTF-8"/>
 		<link rel="stylesheet" href="style.css"/>
-		<script src="content.js"></script>
-		<script src="validate_content.js"></script>
-		<script src="theme.js"></script>
-		<script src="page.js"></script>
-		<script src="slide.js"></script>
+		<link rel="preconnect" href="https://github.githubassets.com"/>
+		<script>
+			var pages = new Map([["home", "Home"]]);
+			var slideIndex = 0;
+		</script>
 	</head>
 	<body>
 		<div class="bg-overlay dark"></div>
@@ -36,58 +36,34 @@
 				<div id="page-home">
 					<details open>
 						<summary><h2 class="spoiler">Applications</h2></summary>
-						<div class="project dark", id="Applications"></div>
+						<div class="project dark", id="Applications">
+							<div id="include" src="pages/tinytotp.json"></div>
+							<div class="h-div"></div>
+							<div id="include" src="pages/localizer4j.json"></div>
+							<div class="h-div"></div>
+							<div id="include" src="pages/copycat.json"></div>
+							<div class="h-div"></div>
+							<div id="include" src="pages/checklist.json"></div>
+						</div>
 					</details>
 					<details>
 						<summary><h2 class="spoiler">Tools</h2></summary>
-						<div class="project dark", id="Tools"></div>
+						<div class="project dark", id="Tools">
+							<div id="include" src="pages/cachebuilder.json"></div>
+						</div>
 					</details>
 					<details>
 						<summary><h2 class="spoiler">Libraries</h2></summary>
-						<div class="project dark" id="Libraries"></div>
+						<div class="project dark" id="Libraries">
+							<div id="include" src="pages/genericlexer.json"></div>
+						</div>
 					</details>
 				</div>
 			</div>
 		</div>
 	</body>
-	<template id="app-preview-template">
-		<div id="app-preview-container">
-			<a id="app-page-link">
-				<table><tr>
-					<td><img id="app-icon"/></td>
-					<td><h2 id="app-name"></h2></td>
-				</tr></table>
-			</a>
-			<p id="app-info"></p>
-		</div>
-	</template>
-	<template id="app-page-template">
-		<div id="app-page-container">
-			<table><tr>
-				<td><img id="app-icon"/></td>
-				<td><h2 id="app-name"></h2></td>
-			</tr></table>
-			<p id="app-info"/>
-			<div id="slideshow" class="dark">
-				<span class="prev" onclick="nextSlide(false)">❮</span>
-				<span class="next" onclick="nextSlide(true)">❯</span>
-			</div>
-			<p id="app-description"/>
-			<div style="width: 100%; position: relative;">
-				<div id="app-downloads">
-					<a id="app-repository">
-						<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/" title="Github - kryptonbutterfly/"/>
-					</a>
-				</div>
-			</div>
-		</div>
-	</template>
-	<template id="slide-template">
-		<div id="slide">
-			<div id="numbertext" class="dark"></div>
-			<img id="img"/>
-		</div>
-	</template>
-	<script src="build-dom.js"></script>
+	<script src="theme.js"></script>
+	<script src="page.js"></script>
+	<script src="build-page.js"></script>
+	<script src="slide.js"></script>
 </html>
-

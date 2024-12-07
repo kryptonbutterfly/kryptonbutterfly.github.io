@@ -1,19 +1,11 @@
 function showSlide() {
 	page = currPage();
-	const container = document.getElementById("page-" + page);
-	for (const app of appData) {
-		if (app.id == page) {
-			const count = app.images.length;
-			slideIndex = (slideIndex + count) % count;
-			let index = 0;
-			for (const slide of container.querySelectorAll("div#slide"))
-			{
-				slide.style.display = index == slideIndex ? "block" : "none";
-				index++;
-			}
-			return;
-		}
-	}
+	const container = document.getElementById(`page-${page}`);
+	const slides = container.querySelectorAll("div#slide");
+	const count = slides.length;
+	slideIndex = (slideIndex + count) % count;
+	for (let i = 0; i < count; i++)
+		slides[i].style.display = i == slideIndex ? 'block' : 'none';
 }
 
 function nextSlide(forward) {

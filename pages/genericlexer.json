@@ -1,0 +1,9 @@
+{
+	"name": "generic-lexer",
+	"id": "genericlexer",
+	"images": [],
+	"info": "The basics of a lexer without any token definitions.",
+	"description": null,
+	"downloads": [],
+	"repo_link": "https://github.com/kryptonbutterfly/generic-lexer#generix-lexer-"
+}

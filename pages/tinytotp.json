@@ -1,0 +1,44 @@
+{
+	"name": "TinyTotp",
+	"id": "tinytotp",
+	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/src/assets/icon.svg",
+	"images": [{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Main.webp",
+		"alt": "The main window of this application.",
+		"title": "Main Window"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Categories.webp",
+		"alt": "The window to edit and create categories.",
+		"title": "Categories Window"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Import-Secret.webp",
+		"alt": "The window used to import a totp entry.",
+		"title": "Import Secret Window"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Import-Qr.webp",
+		"alt": "The window used to scan a qr code using the devices webcam in order to add a totp entry.",
+		"title": "Scan Secret Window"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/AddSecret.webp",
+		"alt": "This window is used to add a totp entry.",
+		"title": "Add Secret Window"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Edit-Totp.webp",
+		"alt": "This window is used to edit an existing totp entry.",
+		"title": "Edit TOTP Entry Window"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Export-Secret.png",
+		"alt": "This window displays a qr code encoding a totp entry.",
+		"title": "Export Secret Window"
+	}],
+	"info": "App to create 'Time based One Time Passwords'.",
+	"description": "",
+	"downloads": [{
+		"name": "TinyTotp.jar",
+		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp.jar"
+	},{
+		"name": "TinyTotp-4.0.1.deb",
+		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp-4.0.1.deb"
+	}],
+	"repo_link": "https://github.com/kryptonbutterfly/TinyTotp?tab=readme-ov-file#tinytotp"
+}

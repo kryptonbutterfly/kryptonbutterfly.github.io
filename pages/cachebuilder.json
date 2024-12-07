@@ -1,0 +1,22 @@
+{
+	"name": "CacheBuilder",
+	"id": "cachebuilder",
+	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/CacheBuilder/master/icon.svg",
+	"images": [],
+	"info": "ByteCode manipulator used to decorate methos using
+		<a href=\"https://github.com/kryptonbutterfly/tinyCache\" alt:\"@Cache\">@Cache</a>
+		annotations.",
+	"description": "It can be used as a build target in your
+		<a href=\"https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#install\"
+		alt:\"ide\">ide</a>
+		or as a <a href=\"https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar\" alt=\"maven plugin\">maven plugin</a>
+		(requires version 3.0.0 or higher).",
+	"downloads": [{
+		"name": "cache_builder maven plugin",
+		"src": "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar"
+	},{
+		"name": "eclipse build target setup",
+		"src": "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0-setup.zip"
+	}],
+	"repo_link": "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#cachebuilder-"
+}

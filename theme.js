@@ -13,6 +13,10 @@ function showTheme() {
 	const theme = currentTheme();
 	for (const t of themes) {
 		if (t != theme) {
+			for (const code of document.querySelectorAll("code")) {
+				code.classList.remove(t);
+				code.classList.add(theme);
+			}
 			const elements = document.getElementsByClassName(t);
 			for (let i = elements.length - 1; i >= 0; i--)
 				elements[i].classList.replace(t, theme);

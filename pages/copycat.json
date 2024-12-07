@@ -1,0 +1,24 @@
+{
+	"name": "CopyCat",
+	"id": "copycat",
+	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/deb-content/icon.svg",
+	"images": [{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/md/resources/CopyCat_main.webp",
+		"alt": "The main window of the application.",
+		"title": "Main Window"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/md/resources/Import.webp",
+		"alt": "The window used to scan qr codes and add the encoded data to the system clipboard.",
+		"title": "Import Window"
+	}],
+	"info": "A Desktop QR-Code Scanner using the devices webcam.",
+	"description": "An application to generate a qr code from clipboard content or scan a qr code via webcam and add the content to the system clipboard.",
+	"downloads": [{
+		"name": "CopyCat.jar",
+		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.0/CopyCat.jar"
+	},{
+		"name": "copy-cat-1.0.0.deb",
+		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.0/copy-cat-1.0.0.de"
+	}],
+	"repo_link": "https://github.com/kryptonbutterfly/CopyCat?tab=readme-ov-file#copycat"
+}
