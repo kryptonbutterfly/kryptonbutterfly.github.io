@@ -10,10 +10,11 @@ function buildSlideShow(images) {
 			<span class="next">❯</span>`;
 	for (let i = 0; i < images.length; i++) {
 		const img = images[i];
+		const lazy = i == 0 ? '': ' loading="lazy"';
 		slideshow += `
 			<div id="slide"${i == 0 ? '' : ' class="invis"'}">
 				<div id="numbertext" class="dark">${i+1}/${images.length}</div>
-				<img id="img" src="${img.src}" alt="${img.alt}" title="${img.title}"/>
+				<img id="img" src="${img.src}" alt="${img.alt}" title="${img.title}"${lazy}/>
 			</div>`;
 	}
 	return slideshow + "\n</div>";
