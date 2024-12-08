@@ -23,7 +23,10 @@ function showTheme() {
 		}
 	}
 	for (const img of document.getElementsByClassName("theme"))
-		img.style.display = img.id == theme ? "" : "none";
+		if (img.id == theme)
+			img.classList.remove("invis");
+		else
+			img.classList.add("invis");
 }
 
 function switchTheme() {

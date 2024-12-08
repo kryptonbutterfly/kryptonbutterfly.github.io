@@ -10,11 +10,13 @@ function showPage(target) {
 		target = currPage();
 	for (const [id, name] of pages.entries()) {
 		let hide = 'none';
+		const page = document.getElementById(`page-${id}`);
 		if (target == id) {
-			hide = 'block';
+			page.classList.remove("invis");
 			document.title = `Kryptonbutterfly · ${name}`;
 		}
-		document.getElementById(`page-${id}`).style.display = hide;
+		else
+			page.classList.add("invis");
 	}
 }
 

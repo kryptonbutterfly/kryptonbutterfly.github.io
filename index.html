@@ -9,27 +9,35 @@
 		<meta charset="UTF-8"/>
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="preconnect" href="https://github.githubassets.com"/>
-		<script>
-			var pages = new Map([["home", "Home"]]);
-			var slideIndex = 0;
-		</script>
+		<meta http-equiv="Content-Security-Policy" content="
+			script-src-elem 'self';
+			script-src 'self';
+			img-src 'self'
+				https://github.githubassets.com/
+				https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/
+				https://raw.githubusercontent.com/kryptonbutterfly/CopyCat/master/
+				https://raw.githubusercontent.com/kryptonbutterfly/Localizer4J/master/
+				https://raw.githubusercontent.com/kryptonbutterfly/CacheBuilder/master/
+				https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/
+			"/>
+		<script src="init.js"></script>
 	</head>
 	<body>
 		<div class="bg-overlay dark"></div>
 		<div class="content dark">
 			<div class="header dark">
-				<a class="a-button" href="?page=home" alt="home" title="home" onclick="switchPage(event, 'home');")>
+				<a class="a-button switch-page-home" href="?page=home" alt="home" title="home">
 					<img class="dark" id="home" src="assets/kryptonbutterfly.svg" alt="home"/>
 				</a>
 				<h1 class="header-title dark" id="glow">Kryptonbutterfly</h1>
-				<a class="a-button" href="#" alt="change Theme" title="change Theme" onclick="switchTheme(event);">
-					<img class="theme" id="dark" src="assets/light-theme.svg", style="display: none" alt="enable light theme"/>
+				<a class="a-button switch-theme" href="#" alt="change Theme" title="change Theme">
+					<img class="theme" id="dark" src="assets/light-theme.svg" alt="enable light theme"/>
 					<img class="theme" id="light" src="assets/dark-theme.svg" alt="enable dark theme"/>
 				</a>
 			</div>
 			<noscript>
-				<div style="border: 3px solid #F00; border-radius: 15px; background: #F00">
-					<p style="text-align:center; margin: 5px; color: #003">This website requires javascript to be enabled, in order to be displayed correctly!</p>
+				<div class="noscript">
+					<p class="noscript">This website requires javascript to be enabled, in order to be displayed correctly!</p>
 				</div>
 			</noscript>
 			<div id="page-container">

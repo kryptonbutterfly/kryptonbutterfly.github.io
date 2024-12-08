@@ -5,7 +5,10 @@ function showSlide() {
 	const count = slides.length;
 	slideIndex = (slideIndex + count) % count;
 	for (let i = 0; i < count; i++)
-		slides[i].style.display = i == slideIndex ? 'block' : 'none';
+		if (i == slideIndex)
+			slides[i].classList.remove("invis");
+		else
+			slides[i].classList.add("invis");
 }
 
 function nextSlide(forward) {

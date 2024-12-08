@@ -1,9 +1,9 @@
 {
 	"name": "CheckList",
 	"id": "checklist",
-	"icon": "https://raw.githubusercontent.com/tinycodecrank/CheckList/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
+	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
 	"images": [{
-		"src": "https://raw.githubusercontent.com/tinycodecrank/CheckList/master/md/Screenshot_CheckList.webp",
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/md/Screenshot_CheckList.webp",
 		"alt": "The main view of the app.",
 		"title": "Main View"
 	}],

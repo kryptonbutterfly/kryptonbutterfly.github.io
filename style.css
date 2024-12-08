@@ -23,6 +23,24 @@ html.light {
 body {
 	margin: 0;
 }
+div.noscript {
+	padding: 0.15em;
+	border-radius: 15px;
+	background: #F00;
+}
+div.dl {
+	margin: 0.3em 0em;
+}
+div.repo {
+	width: 100%;
+	position: relative;
+	margin-top: 1em;
+}
+p.noscript {
+	text-align:center;
+	margin: 5px;
+	color: #003;
+}
 .bg-overlay {
 	z-index: -1;
 	display: block;
@@ -104,15 +122,19 @@ body {
 	margin: 5px;
 }
 #slideshow {
+	display: block;
+	margin: 1em 0em;
 	border-radius: 1em;
 	position: relative;
-	margin: auto;
 	height: 24em;
 	background: dimgray;
 	padding: 1em 0em;
 }
 #slideshow.light {
 	background: lightgray;
+}
+.invis {
+	display: none;
 }
 #img {
 	display: block;

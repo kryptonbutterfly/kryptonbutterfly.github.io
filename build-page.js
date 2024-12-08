@@ -5,13 +5,13 @@ function buildDescription(description) {
 
 function buildSlideShow(images) {
 	if (!images || images.length === 0) return "";
-	let slideshow = `<div id="slideshow" class="dark" style="display: block; margin: 1em 0em">
-			<span class="prev" onclick="nextSlide(false)">❮</span>
-			<span class="next" onclick="nextSlide(true)">❯</span>`;
+	let slideshow = `<div id="slideshow" class="dark">
+			<span class="prev">❮</span>
+			<span class="next">❯</span>`;
 	for (let i = 0; i < images.length; i++) {
 		const img = images[i];
 		slideshow += `
-			<div id="slide" style="display: ${i == 0 ? "block" : "none"}">
+			<div id="slide"${i == 0 ? '' : ' class="invis"'}">
 				<div id="numbertext" class="dark">${i+1}/${images.length}</div>
 				<img id="img" src="${img.src}" alt="${img.alt}" title="${img.title}"/>
 			</div>`;
@@ -23,7 +23,7 @@ function buildDownloads(downloads) {
 	if (!downloads || downloads.length === 0)	return "";
 	let result = "";
 	for (const dl of downloads)
-		result += `\n<div style="margin: 0.3em 0em;"><a href="${dl.src}">${dl.name}<br></a></div>`
+		result += `\n<div class="dl"><a href="${dl.src}">${dl.name}<br></a></div>`
 	return result;
 }
 
@@ -31,7 +31,7 @@ function addPage(container, data) {
 	const page = document.createElement("div");
 	container.appendChild(page);
 	page.id = `page-${data.id}`;
-	page.style.display = 'none';
+	page.classList.add('invis');
 	let icon = "";
 	if (!!data.icon)
 		icon = `<img id="app-icon" src="${data.icon}" alt="${data.name}">`;
@@ -48,11 +48,15 @@ function addPage(container, data) {
 		<p id="app-info">${data.info}</p>
 		${buildSlideShow(data.images)}
 		${buildDescription(data.description)}
-		<div style="width: 100%; position: relative; margin-top: 1em;">
+		<div class="repo">
 			<a href="${data.repo_link}">
 				<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/${data.name}" title="Github - kryptonbutterfly/${data.name}">
 			</a>${buildDownloads(data.downloads)}
 		</div>`;
+	for (const button of page.querySelectorAll(".prev"))
+		button.onclick = (e) => nextSlide(false);
+	for (const button of page.querySelectorAll(".next"))
+		button.onclick = (e) => nextSlide(true);
 }
 
 function addPreview(target, data) {
@@ -106,6 +110,14 @@ function buildPages() {
 	}
 }
 
+function build() {
+	for (const button of document.querySelectorAll(".switch-theme"))
+		button.onclick = switchTheme;
+	for (const button of document.querySelectorAll(".switch-page-home"))
+		button.onclick = (e) => switchPage(e, "home");
+	buildPages();
+}
+
 window.addEventListener("popstate", function(event) { showPage(); });
 
-document.addEventListener("DOMContentLoaded", () => buildPages());
+document.addEventListener("DOMContentLoaded", build);
