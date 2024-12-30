@@ -183,7 +183,7 @@ p.noscript {
 #app-repo-icon.light {
 	filter: invert(100%);
 }
-.h-div {
+.h-sep {
 	border-top: 1px solid gray;
 }
 .spoiler {
@@ -205,7 +205,25 @@ p.noscript {
 code {
     border-radius: 5px;
     background-color: #404040;
+    padding: 0.2em;
 }
 code.light {
 	background-color: #B0B0B0;
+}
+.table, .table th, .table td {
+	border: 1px solid #777;
+	border-collapse: collapse;
+	padding: 0.4em 0.8em;
+}
+p {
+	margin-left: 1em;
+}
+.syn-kw {
+	color: #c04e00;
+}
+.syn-type {
+	color: #b5ffff;
+}
+.syn-type.light {
+	color: #0080ca;
 }

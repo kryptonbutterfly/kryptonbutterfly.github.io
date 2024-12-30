@@ -4,6 +4,9 @@
 	"images": [],
 	"info": "The basics of a lexer without any token definitions.",
 	"description": null,
-	"downloads": [],
+	"downloads": [{
+		"name": "generic-lexer.jar",
+		"src": "https://github.com/kryptonbutterfly/generic-lexer/releases/download/v3.0.0/generic-lexer.jar"
+	}],
 	"repo_link": "https://github.com/kryptonbutterfly/generic-lexer#generix-lexer-"
 }

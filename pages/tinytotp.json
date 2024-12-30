@@ -30,15 +30,23 @@
 		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Export-Secret.png",
 		"alt": "This window displays a qr code encoding a totp entry.",
 		"title": "Export Secret Window"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Select-Icon.webp",
+		"alt": "This window enables selecting an already known icon.",
+		"title": "Select Icon Window"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/TinyTotp/master/md/Set-Icon.webp",
+		"alt": "This window is is used to set an entry's icon.",
+		"title": "Set Icon Window"
 	}],
 	"info": "App to create 'Time based One Time Passwords'.",
 	"description": "",
 	"downloads": [{
 		"name": "TinyTotp.jar",
-		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp.jar"
+		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.1.0/TinyTotp.jar"
 	},{
-		"name": "TinyTotp-4.0.1.deb",
-		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.0.1/TinyTotp-4.0.1.deb"
+		"name": "TinyTotp-4.1.0.deb",
+		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.1.0/TinyTotp-4.1.0.deb"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/TinyTotp?tab=readme-ov-file#tinytotp"
 }

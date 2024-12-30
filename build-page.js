@@ -49,6 +49,7 @@ function addPage(container, data) {
 		<p id="app-info">${data.info}</p>
 		${buildSlideShow(data.images)}
 		${buildDescription(data.description)}
+		<div class="h-sep"></div>
 		<div class="repo">
 			<a href="${data.repo_link}">
 				<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/${data.name}" title="Github - kryptonbutterfly/${data.name}">
