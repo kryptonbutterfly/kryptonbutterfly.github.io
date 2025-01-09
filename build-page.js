@@ -64,9 +64,9 @@ function addPage(container, data) {
 function addPreview(target, data) {
 	const preview = document.createElement("div");
 	target.appendChild(preview);
-	let icon = "";
-	if (!!data.icon)
-		icon = `<img id="app-icon" src="${data.icon}" alt="${data.name}" title="${data.name}"/>`;
+	const icon = !!data.icon ?
+		`<img id="app-icon" src="${data.icon}" alt="${data.name}" title="${data.name}"/>` :
+		`<div id="app-icon"></div>`;
 	preview.innerHTML = `<a id="app-page-link" title="${data.name}" href="?page=${data.id}">
 		<table><tr>
 			<td>${icon}</td>

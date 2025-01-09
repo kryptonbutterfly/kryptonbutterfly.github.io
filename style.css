@@ -188,7 +188,7 @@ p.noscript {
 }
 .spoiler {
 	display: inline-block;
-	margin-left: 0.2em;
+	margin: 0 0.2em;
 }
 @media (pointer: coarse) {
 	h1 {
@@ -226,4 +226,13 @@ p {
 }
 .syn-type.light {
 	color: #0080ca;
+}
+h2 {
+	margin: 0;
+}
+details {
+	margin: 1.5em 0;
+}
+#include {
+	margin: 0.25em 0;
 }

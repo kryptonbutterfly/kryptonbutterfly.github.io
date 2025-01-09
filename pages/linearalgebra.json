@@ -31,7 +31,7 @@
 				<th>2</th>
 				<th>3</th>
 				<th>4</th>
-				<th>n where n ∊ ℕ⁺</th>
+				<th>n where n ∊ ℕ</th>
 			</tr>
 			<tr>
 				<td><code class=syn-kw>int</code></td>
@@ -70,8 +70,8 @@
 	</li>
 </ol>",
 	"downloads": [{
-		"name": "linear_algebra-3.0.0.jar",
-		"src": "https://github.com/kryptonbutterfly/linearAlgebra/releases/download/v3.0.0/linear_algebra-3.0.0.jar"
+		"name": "linear_algebra-4.0.0.jar",
+		"src": "https://github.com/kryptonbutterfly/linearAlgebra/releases/download/v4.0.0/linear_algebra-4.0.0.jar"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/linearAlgebra#linearalgebra-"
 }
