@@ -43,10 +43,10 @@
 	"description": "",
 	"downloads": [{
 		"name": "TinyTotp.jar",
-		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.1.0/TinyTotp.jar"
+		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.2.0/TinyTotp.jar"
 	},{
-		"name": "TinyTotp-4.1.0.deb",
-		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.1.0/TinyTotp-4.1.0.deb"
+		"name": "TinyTotp-4.2.0.deb",
+		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.2.0/TinyTotp-4.2.0.deb"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/TinyTotp?tab=readme-ov-file#tinytotp"
 }
