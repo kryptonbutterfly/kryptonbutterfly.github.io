@@ -63,7 +63,7 @@
 			</tr>
 		</table>
 		<h4><a>HesseHyperplane</a></h4>
-		<p>A double backed n dimensional hyperplane in hesse normal form.</p>
+		<p>A <code class=syn-kw>double</code> backed n dimensional hyperplane in hesse normal form.</p>
 		<h4><a>Line</a></h4>
 		<p>A generic n dimensional line.<br/>
 		Defined by a position and a directional vector.</p>
