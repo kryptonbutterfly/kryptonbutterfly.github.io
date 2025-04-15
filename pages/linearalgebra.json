@@ -11,16 +11,16 @@
 		<h4><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/IVector.java\" alt=\"IVector source code\" title=\"IVector source code\">IVector</a></h4>
 		<p>A generic vector interface neither defining the backing type nor the dimenionality of the vector. This interface should be extended by all other vector interfaces.</p>
 		<h4><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_int/IVecI.java\" alt=\"IVecI source code\" title=\"IVecI source code\">IVecI</a></h4>
-		<p>A vector interface with <code class=syn-kw>int</code> as the backing type but unspecified dimensionality, implementing <code class=syn-type>IVector</code>.
-			This interface should be implemented by all <code class=syn-kw>int</code> backed vector implementations.</p>
+		<p>A vector interface with <code><syn-kw>int</syn-kw></code> as the backing type but unspecified dimensionality, implementing <code><syn-type>IVector</syn-type></code>.
+			This interface should be implemented by all <code><syn-kw>int</syn-kw></code> backed vector implementations.</p>
 		<h4><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_long/IVecL.java\" alt=\"IVecL source code\" title=\"IVecL source code\">IVecL</a></h4>
-		<p>A vector interface with <code class=syn-kw>long</code> as the backing type but unspecified dimensionality, implementing <code class=syn-type>IVector</code>.
-			This interface should be implemented by all <code class=syn-kw>long</code> backed vector implementations.</p>
+		<p>A vector interface with <code><syn-kw>long</syn-kw></code> as the backing type but unspecified dimensionality, implementing <code><syn-type>IVector</syn-kw></code>.
+			This interface should be implemented by all <code><syn-kw>long</syn-kw></code> backed vector implementations.</p>
 		<h4><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_float/IVecF.java\" alt=\"IVecF\" title=\"IVecF\">IVecF</a></h4>
-		<p>A vector interface with <code class=syn-kw>float</code> as the backing type but unspecified dimensionality, implementing <code class=syn-type>IVector</code>.
-			This interface should be implemented by all <codeclass=syn-kw>float</code> backed vector implementations.</p>
+		<p>A vector interface with <code><syn-kw>float</syn-kw></code> as the backing type but unspecified dimensionality, implementing <code><syn-type>IVector</syn-kw></code>.
+			This interface should be implemented by all <code><syn-kw>float</syn-kw></code> backed vector implementations.</p>
 		<h4><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_double/IVecD.java\" alt=\"IVecD\" title=\"IVecD\">IVecD</a></h4>
-		<p>A vector interface with <code class=syn-kw>double</code> as the backing type but unspecified dimensionality, implementing <code class=syn-type>IVector</code>.
+		<p>A vector interface with <code><syn-kw>double</syn-kw></code> as the backing type but unspecified dimensionality, implementing <code><syn-type>IVector</syn-kw></code>.
 			This interface should be implemented by all <codeclass=syn-kw>double</code> backed vector implementations.</p>
 	</li>
 	<li>
@@ -34,28 +34,28 @@
 				<th>n where n ∊ ℕ</th>
 			</tr>
 			<tr>
-				<td><code class=syn-kw>int</code></td>
+				<td><code><syn-kw>int</syn-kw></code></td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_int/Vec2i.java\" alt=\"Vec2i source code\" title=\"Vec2i source code\">Vec2i</a></td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_int/Vec3i.java\" alt=\"Vec3i source code\" title=\"Vec3i source code\">Vec3i</a></td>
 				<td>–</td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_int/VecNi.java\" alt=\"VecNi source code\" title=\"VecNi source code\">VecNi</a></td>
 			</tr>
 			<tr>
-				<td><code class=syn-kw>long</code></td>
+				<td><code><syn-kw>long</syn-kw></code></td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_long/Vec2l.java\" alt=\"Vec2l source code\" title=\"Vec2l source code\">Vec2l</a></td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_long/Vec3l.java\" alt=\"Vec3l source code\" title=\"Vec3l source code\">Vec3l</a></td>
 				<td>–</td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_long/VecNl.java\" alt=\"VecNl source code\" title=\"VecNl source code\">VecNl</a></td>
 			</tr>
 			<tr>
-				<td><code class=syn-kw>float</code></td>
+				<td><code><syn-kw>float</syn-kw></code></td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_float/Vec2f.java\" alt=\"Vec2f source code\" title=\"Vec2f source code\">Vec2f</a></td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_float/Vec3f.java\" alt=\"Vec3f source code\" title=\"Vec3f source code\">Vec3f</a></td>
 				<td>–</td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_float/VecNf.java\" alt=\"VecNf source code\" title=\"VecNf source code\">VecNf</a></td>
 			</tr>
 			<tr>
-				<td><code class=syn-kw>double</code></td>
+				<td><code><syn-kw>double</syn-kw></code></td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_double/Vec2d.java\" alt=\"Vec2d source code\" title=\"Vec2d source code\">Vec2d</a></td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_double/Vec3d.java\" alt=\"Vec3d source code\" title=\"Vec3d source code\">Vec3d</a></td>
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_double/Vec4d.java\" alt=\"Vec4d source code\" title=\"Vec4d source code\">Vec4d</a></td>
@@ -63,7 +63,7 @@
 			</tr>
 		</table>
 		<h4><a>HesseHyperplane</a></h4>
-		<p>A <code class=syn-kw>double</code> backed n dimensional hyperplane in hesse normal form.</p>
+		<p>A <code><syn-kw>double</syn-kw></code> backed n dimensional hyperplane in hesse normal form.</p>
 		<h4><a>Line</a></h4>
 		<p>A generic n dimensional line.<br/>
 		Defined by a position and a directional vector.</p>

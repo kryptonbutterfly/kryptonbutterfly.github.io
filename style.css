@@ -211,22 +211,68 @@ code {
 code.light {
 	background-color: #B0B0B0;
 }
+div.code {
+	border-radius: 5px;
+	background-color: #303030;
+	font-style: monospace;
+	padding: 0.5em;
+}
+div.code.light {
+	background-color: #C0C0C0;
+}
 .table, .table th, .table td {
 	border: 1px solid #777;
 	border-collapse: collapse;
 	padding: 0.4em 0.8em;
 }
-p {
-	margin-left: 1em;
-}
-.syn-kw {
+syn-kw {
 	color: #c04e00;
 }
-.syn-type {
+syn-type {
 	color: #b5ffff;
 }
-.syn-type.light {
+syn-type.light {
 	color: #0080ca;
+}
+syn-var {
+	color: #fcff7a;
+}
+syn-var.light {
+	color: #6127b6;
+}
+syn-fun {
+	color: #aaff65;
+}
+syn-fun.light {
+	color: #4caa00;
+}
+syn-literal {
+	color: #80ffbb;
+}
+syn-literal.light {
+	color: #00784e;
+}
+syn-ann-id {
+	color: #ff0044;
+}
+syn-ann-id.light {
+	color: #bd0032;
+}
+syn-ann {
+	color: Dimgrey;
+	font-style: italic;
+}
+syn-ann.ligth {
+	color: Darkgrey;
+}
+syn-comment {
+	color: #924fff;
+}
+syn-comment.light {
+	color: #6832c0;
+}
+p {
+	margin-left: 1em;
 }
 h2 {
 	margin: 0;
@@ -236,4 +282,18 @@ details {
 }
 #include {
 	margin: 0.25em 0;
+}
+term-user:before {
+	color: #606060;
+	content: "$  ";
+}
+term-user.light {
+	color: #A0A0A0;
+}
+term-root:before {
+	color: #606060;
+	content: "#";
+}
+term-root.light {
+	color: #A0A0A0;
 }

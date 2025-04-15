@@ -1,0 +1,54 @@
+{
+	"name": "tiny-args-parser",
+	"id": "tiny_args_parser",
+	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/tinyArgsManager/master/icon.svg",
+	"images": [],
+	"info": "This library makes it ease to parse program arguments.",
+	"description": "<h2>Example</h2>
+	<p>
+	<div class=\"code dark\">
+		<syn-kw>import</syn-kw> kryptonbutterfly.args.*;</br></br>
+		<syn-ann>@ArgsProperties</syn-ann>()<br/>
+		<syn-kw>public class</syn-kw> <syn-type>ProgramArgs</syn-type> <syn-kw>implements</syn-kw> <syn-type>IArgs</syn-type> {<br/>
+		&emsp;<syn-ann>@Argument</syn-ann>(<syn-ann-id>name</syn-ann-id> = <syn-literal>\"a\"</syn-literal>, <syn-ann-id>info</syn-ann-id> = <syn-literal>\"example arg a\"</syn-literal>, <syn-ann-id>isRequired</syn-ann-id> = <syn-kw>true</syn-kw>)</br>
+		&emsp;<syn-kw>public</syn-kw> <syn-type>String</syn-type> <syn-var>argA</syn-var> = <syn-kw>null</syn-kw>;</br></br>
+		
+		&emsp;<syn-ann>@Argument</syn-ann>(<syn-ann-id>name</syn-ann-id> = <syn-literal>\"n\"</syn-literal>, <syn-ann-id>info</syn-ann-id> = <syn-literal>\"a number\"</syn-literal>)</br>
+		&emsp;<syn-kw>public</syn-kw> <syn-type>int</syn-type> <syn-var>argNum</syn-var> = <syn-literal>0</syn-literal>;</br>
+		</br>
+		
+		&emsp;<syn-ann>@Override</syn-ann></br>
+		&emsp;<syn-kw>public</syn-kw> <syn-type>String</syn-type> <syn-fun>programInfo</syn-fun>() {</br>
+		&emsp;&emsp;<syn-kw>return</syn-kw> <syn-literal>\"This is the programs description.\"</syn-literal>;</br>
+		&emsp;}</br>
+		}
+	</div>
+	</p>
+	<p>
+	<div class=\"code dark\">
+		<syn-kw>import</syn-kw> kryptonbutterfly.args.ArgsParser;</br></br>
+		<syn-kw>public static void</syn-kw> <syn-fun>main</syn-fun>(<syn-type>String[]</syn-type> <syn-var>args</syn-var>) {</br>
+	&emsp;<syn-kw>var</syn-kw> <syn-var>parser</syn-var> = <syn-kw>new</syn-kw> <syn-fun>ArgsParser</syn-fun>();</br>
+	&emsp;<syn-var>parser</syn-var>.<syn-var>sanityCheck</syn-var> = <syn-kw>true</syn-kw>;&emsp;<syn-comment>//This should not be enabled in production!</syn-comment></br>
+	&emsp;<syn-kw>var</syn-kw> <syn-var>result</syn-var> = <syn-var>parser</syn-var>.<syn-fun>parse</syn-fun>(<syn-fun>ProgramArgs</syn-fun>::<syn-kw>new</syn-kw>, <syn-var>args</syn-var>);</br>
+	}
+	</div>
+	</p>
+	<p>
+	<div class=\"code dark\">
+		<term-user></term-user>java -jar ./program.jar -h</br></br>
+	This is the programs description.</br></br>
+	&nbsp;-h --help &emsp; &emsp; &emsp;display this help and exit.</br></br>
+	&nbsp;-a &emsp; &emsp; &emsp; &emsp; &emsp; example arg a</br>
+	&nbsp;-n &emsp; &emsp; &emsp; &emsp; &emsp; a number</br>
+	</samp>
+	</div>
+	</p>
+	
+	",
+	"downloads": [{
+		"name": "tiny-args-parser-3.0.0.jar",
+		"src": "https://github.com/kryptonbutterfly/tinyArgsManager/releases/download/v3.0.0/tiny-args-parser-3.0.0.jar"
+	}],
+	"repo_link": "https://github.com/kryptonbutterfly/tinyArgsManager?tab=readme-ov-file#tinyargsmanager"
+}
