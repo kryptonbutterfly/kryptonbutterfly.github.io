@@ -18,6 +18,7 @@ function showPage(target) {
 		else
 			page.classList.add("invis");
 	}
+	window.scrollTo(0, 0);
 	showSlide();
 }
 
