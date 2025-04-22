@@ -21,7 +21,7 @@
 			This interface should be implemented by all <code><syn-kw>float</syn-kw></code> backed vector implementations.</p>
 		<h4><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_double/IVecD.java\" alt=\"IVecD\" title=\"IVecD\">IVecD</a></h4>
 		<p>A vector interface with <code><syn-kw>double</syn-kw></code> as the backing type but unspecified dimensionality, implementing <code><syn-type>IVector</syn-kw></code>.
-			This interface should be implemented by all <codeclass=syn-kw>double</code> backed vector implementations.</p>
+			This interface should be implemented by all <code><syn-kw>double</syn-kw></code> backed vector implementations.</p>
 	</li>
 	<li>
 		<h3>Classes</h3>
@@ -63,9 +63,9 @@
 			</tr>
 		</table>
 		<h4><a>HesseHyperplane</a></h4>
-		<p>A <code><syn-kw>double</syn-kw></code> backed n dimensional hyperplane in hesse normal form.</p>
+		<p>A <code><syn-kw>double</syn-kw></code> backed <code>n</code> dimensional hyperplane in hesse normal form.</p>
 		<h4><a>Line</a></h4>
-		<p>A generic n dimensional line.<br/>
+		<p>A generic <code>n</code> dimensional line.<br/>
 		Defined by a position and a directional vector.</p>
 	</li>
 </ol>",

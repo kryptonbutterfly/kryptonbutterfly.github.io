@@ -10,7 +10,31 @@
 		<a href=\"https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#install\"
 		alt:\"ide\">ide</a>
 		or as a <a href=\"https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar\" alt=\"maven plugin\">maven plugin</a>
-		(requires version 3.0.0 or higher).",
+		(requires version 3.0.0 or higher).
+		<h2>Example</h2><p><div class=\"code dark\">
+		<syn-kw>static</syn-kw> <syn-type>int</syn-type> <syn-var>invocations</syn-var> = <syn-literal>0</syn-literal>;</br></br>
+		<syn-ann>@Cache</syn-ann>(<syn-ann-id>cache</syn-ann-id> = <syn-fun>FIFOCache</syn-fun>.<syn-kw>class</syn-kw>, <syn-ann-id>capacity</syn-ann-id> = <syn-literal>2</syn-literal>)</br>
+		<syn-kw>public static</syn-kw> <syn-type>int</syn-type> <syn-fun>fibonacci</syn-fun>(<syn-type>int</syn-type> <syn-var>n</syn-var>) {</br>
+		<tab/><syn-var>invocations</syn-var>++;</br></br>
+		<tab/><syn-kw>if</syn-kw> (<syn-var>n</syn-var> == <syn-literal>0</syn-literal> || <syn-var>n</syn-var> == <syn-literal>1</syn-literal>)</br>
+		<tab/><tab/><syn-kw>return</syn-kw> <syn-var>n</syn-var>;</br>
+		<tab/><syn-kw>else</syn-kw></br>
+		<tab/><tab/><syn-kw>return</syn-kw> <syn-fun>fibonacci</syn-fun>(<syn-var>n</syn-var> - <syn-literal>2</syn-literal>) + <syn-fun>fibonacci</syn-fun>(<syn-var>n</syn-var> - <syn-literal>1</syn-literal>);</br>
+		}</br></br>
+		<syn-kw>public</syn-kw> <syn-type>void</syn-type> <syn-fun>main</syn-fun>(<syn-type>String[]</syn-type> <syn-var>args</syn-var>) {</br>
+		<tab/><syn-type>int</syn-type> <syn-var>n</syn-var> = <syn-literal>10</syn-literal>;</br>
+		<tab/><syn-type>System</syn-type>.<syn-var>out</syn-var>.<syn-fun>printf</syn-fun>(<syn-literal>\"fibonacci(%s) => %s\"</syn-literal>, <syn-var>n</syn-var>, <syn-fun>fibonacci</syn-fun>(<syn-var>n</syn-var>));</br>
+		<tab/><syn-type>System</syn-type>.<syn-var>out</syn-var>.<syn-fun>printf</syn-fun>(<syn-literal>\"invocations %s\"</syn-literal>, <syn-var>invocations</syn-var>);</br>
+		}
+		</div></p>
+		<h3>Output</h3>
+		<p><div class=\"code dark\">
+		fibonacci(10) => 55</br>
+invocations 11
+		</div></p>
+		<p>
+		In this example the @Cache annotation causes the function <code><syn-type>int</syn-type>&nbsp;<syn-fun>fibonacci</syn-fun>(<syn-type>int</syn-type>&nbsp;<syn-var>n</syn-var>)</code> to be wrapped in a FIFO cache with cacpacity 2, avoiding recomputation of already computed values. This reduces the invocation count for a given <code>n&nbsp;∊&nbsp;ℕ</code> from <code>≈2<sup>n</sup></code> to <code>≈n</code>.
+		</p>",
 	"downloads": [{
 		"name": "cache_builder maven plugin",
 		"src": "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0.jar"

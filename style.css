@@ -214,7 +214,7 @@ code.light {
 div.code {
 	border-radius: 5px;
 	background-color: #303030;
-	font-style: monospace;
+	font-family: monospace;
 	padding: 0.5em;
 }
 div.code.light {
@@ -282,6 +282,10 @@ details {
 }
 #include {
 	margin: 0.25em 0;
+}
+tab:before {
+	padding: 0 1ch;
+	content: "";
 }
 term-user:before {
 	color: #606060;
