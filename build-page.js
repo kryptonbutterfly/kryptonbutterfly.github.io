@@ -5,7 +5,9 @@ function buildDescription(description) {
 
 function buildSlideShow(images) {
 	if (!images || images.length === 0) return "";
-	let slideshow = `<div id="slideshow" class="dark">
+	let slideshow = `<div id="slideshow" class="dark">`;
+	if (images.length > 1)
+		slideshow += `
 			<span class="prev">❮</span>
 			<span class="next">❯</span>`;
 	for (let i = 0; i < images.length; i++) {
