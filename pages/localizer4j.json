@@ -9,11 +9,11 @@
 		When editing a language file the application will indicate translations missing from the current language file.</br>
 		When creating translations for a java project the sources can be linked. After linking the editor will search for all String literals in the program and display the occurences of translations within the source code.",
 	"downloads": [{
-		"name": "localizer4j-3.0.0.jar",
-		"src": "https://github.com/kryptonbutterfly/Localizer4J/releases/download/v3.0.0/localizer4j-3.0.0.jar"
+		"name": "localizer4j-3.0.1.jar",
+		"src": "https://github.com/kryptonbutterfly/Localizer4J/releases/download/v3.0.1/localizer4j-3.0.1.jar"
 	},{
-		"name": "Localizer4J-3.0.0.deb",
-		"src": "https://github.com/kryptonbutterfly/Localizer4J/releases/download/v3.0.0/Localizer4J-3.0.0.deb"
+		"name": "Localizer4J-3.0.1.deb",
+		"src": "https://github.com/kryptonbutterfly/Localizer4J/releases/download/v3.0.1/Localizer4J-3.0.1.deb"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/Localizer4J#localizer4j-"
 }
