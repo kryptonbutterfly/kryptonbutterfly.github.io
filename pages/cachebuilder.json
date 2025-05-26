@@ -3,7 +3,7 @@
 	"id": "cachebuilder",
 	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/CacheBuilder/master/icon.svg",
 	"images": [],
-	"info": "ByteCode manipulator used to decorate methos using
+	"info": "ByteCode manipulator used to decorate methods using
 		<a href=\"https://github.com/kryptonbutterfly/tinyCache\" alt:\"@Cache\">@Cache</a>
 		annotations.",
 	"description": "It can be used as a build target in your
