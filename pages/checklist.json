@@ -18,7 +18,7 @@
 	"info": "A primitive checklist app for android.",
 	"downloads": [{
 		"name": "CheckList.apk",
-		"src": "https://github.com/kryptonbutterfly/CheckList/releases/download/v2.0.2/CheckList.apk"
+		"src": "https://github.com/kryptonbutterfly/CheckList/releases/download/v2.1.0/CheckList.apk"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/CheckList?tab=readme-ov-file#checklist"
 }
