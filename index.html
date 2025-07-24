@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="style.css"/>
 		<link rel="preconnect" href="https://github.githubassets.com"/>
 		<meta http-equiv="Content-Security-Policy" content="
+			object-src 'none';
 			script-src-elem 'self';
 			script-src 'self';
 			img-src 'self'
@@ -44,9 +45,22 @@
 			</noscript>
 			<div id="page-container">
 				<div id="page-home">
-					<details open>
-						<summary><h2 class="spoiler">Applications</h2></summary>
-						<div class="project dark", id="Applications">
+					<div class="menu">
+						<table style="border-collapse:collapse; border: none; width: 100%">
+						<tr style="height: 2.75em">
+							<td id="app" class="category selected" tabindex="0">Applications</td>
+							<td id="tools" class=category tabindex="0">Tools</td>
+							<td id="libs" class=category tabindex="0">Libraries</td>
+							<td style="width: 100%">
+							<a href="https://github.com/kryptonbutterfly" alt="GitHub · kryptonbutterfly" style="margin-right: 0.75em; float:right">
+								<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" title="GitHub · kryptonbutterfly"/>
+							</a>
+							</td>
+						</tr>
+						</table>
+					</div>
+					<div class="page-content">
+						<div class="project dark app">
 							<div id="include" src="pages/tinytotp.json"></div>
 							<div class="h-sep"></div>
 							<div id="include" src="pages/localizer4j.json"></div>
@@ -55,27 +69,22 @@
 							<div class="h-sep"></div>
 							<div id="include" src="pages/checklist.json"></div>
 						</div>
-					</details>
-					<details>
-						<summary><h2 class="spoiler">Tools</h2></summary>
-						<div class="project dark", id="Tools">
+						<div class="project dark tools" style="display:none">
 							<div id="include" src="pages/cachebuilder.json"></div>
 						</div>
-					</details>
-					<details>
-						<summary><h2 class="spoiler">Libraries</h2></summary>
-						<div class="project dark" id="Libraries">
+						<div class="project dark libs" style="display:none">
 							<div id="include" src="pages/tiny-args-parser.json"></div>
 							<div class="h-sep"></div>
 							<div id="include" src="pages/genericlexer.json"></div>
 							<div class="h-sep"></div>
 							<div id="include" src="pages/linearalgebra.json"></div>
 						</div>
-					</details>
+					</div>
 				</div>
 			</div>
 		</div>
 	</body>
+	<script src="menu.js"></script>
 	<script src="theme.js"></script>
 	<script src="page.js"></script>
 	<script src="build-page.js"></script>

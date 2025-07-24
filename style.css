@@ -46,6 +46,23 @@ p.noscript {
 	left: 0;
 	right: 0;
 }
+.menu {
+	background: #8882;
+	width: 100%
+}
+td.category {
+	cursor: pointer;
+	vertical-align: middle;
+	border: 0;
+	font-weight: bold;
+	padding: 0em 0.5em;
+}
+td.category:hover {
+	background-color: #8882
+}
+td.category.selected {
+	background-color: #8883
+}
 .content {
 	padding-bottom: 1.5em;
 }
@@ -99,13 +116,14 @@ p.noscript {
   color: #262626;
   text-shadow: 0 0 0.5em #26262666, 0 0 1em gray;
 }
-#page-container {
+.page-content {
 	margin: 0 0.75em;
 }
 .project {
 	border-radius: 15px;
 	background-color: #141414;
 	padding: 0.5em;
+	margin-top: 0.75em;
 }
 .project.light {
 	background-color: #EBEBEB;
@@ -166,7 +184,7 @@ p.noscript {
 	border-radius: 3px 0 0 3px;
 }
 .prev:hover, .next:hover {
-	background-color: #000000CC;
+	background: #000C;
 }
 #numbertext {
 	color: whitesmoke;
@@ -179,6 +197,8 @@ p.noscript {
 	color: #0A0A0A;
 }
 #app-repo-icon {
+	width: 32px;
+	height: 32px;
 	float: right;
 }
 #app-repo-icon.light {

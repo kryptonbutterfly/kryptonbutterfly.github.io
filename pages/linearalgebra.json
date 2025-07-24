@@ -62,9 +62,9 @@
 				<td><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/vector/_double/VecNd.java\" alt=\"VecNd source code\" title=\"VecNd source code\">VecNd</a></td>
 			</tr>
 		</table>
-		<h4><a>HesseHyperplane</a></h4>
+		<h4><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/geometry/HyperplaneHesse.java\" alt=\"HyperplaneHesse source code\" title=\"HyperplaneHesse source code\">HesseHyperplane</a></h4>
 		<p>A <code><syn-kw>double</syn-kw></code> backed <code>n</code> dimensional hyperplane in hesse normal form.</p>
-		<h4><a>Line</a></h4>
+		<h4><a href=\"https://github.com/kryptonbutterfly/linearAlgebra/blob/master/src/kryptonbutterfly/math/geometry/Line.java\" alt=\"Line source code\" title=\"Line source code\">Line</a></h4>
 		<p>A generic <code>n</code> dimensional line.<br/>
 		Defined by a position and a directional vector.</p>
 	</li>

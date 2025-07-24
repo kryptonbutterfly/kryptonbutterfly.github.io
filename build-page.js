@@ -32,6 +32,7 @@ function buildDownloads(downloads) {
 
 function addPage(container, data) {
 	const page = document.createElement("div");
+	page.classList.add("page-content");
 	container.appendChild(page);
 	page.id = `page-${data.id}`;
 	page.classList.add('invis');
