@@ -15,7 +15,7 @@ function createContent(content, copy) {
 	return `${content}
 <div style="float:right">
 <span id="copy-message" style="font-size:100%; background:#8888; border:0px; border-radius:15px; padding: 2px 10px;display:none;">Copied!</span>
-<button style="width:16px; height:16px; background-image: url('assets/copy.svg'); background-size: cover; background-color: #0000; border:none; cursor:pointer;" onclick="copyToClipboard(this, '${copy}')"/></div>`;
+<button style="width:16px; height:16px; background-image: url('assets/copy.svg'); background-size: cover; background-color: #0000; border:none; cursor:pointer;"/></div>`;
 }
 
 class TermUser extends HTMLElement {
@@ -29,6 +29,10 @@ class TermUser extends HTMLElement {
 	render() {
 		const content = this.getAttribute('content');
 		this.shadowRoot.innerHTML = createContent(content, content);
+		const btn = this.shadowRoot.querySelector("button");
+		btn.addEventListener('click', () => {
+			copyToClipboard(btn, content);
+		});
 	}
 
 	static get observedAttributes() {
@@ -52,6 +56,10 @@ class TermRoot extends HTMLElement {
 		const content = this.getAttribute('content');
 		const root = `sudo ${content}`;
 		this.shadowRoot.innerHTML = createContent(content, root);
+		const btn = this.shadowRoot.querySelector("button");
+		btn.addEventListener('click', () => {
+			copyToClipboard(btn, root);
+		});
 	}
 
 	static get observedAttributes() {

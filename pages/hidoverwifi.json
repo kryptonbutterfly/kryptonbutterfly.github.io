@@ -26,13 +26,13 @@
 <ul>
 <li>Install the <a href=\"https://github.com/kryptonbutterfly/HIDoverWifi_service/releases/download/v1.0.0/HIDoverWifi.deb\">HIDoverWifi.deb</a> package.</li>
 <li>In order to configure the service run:</br>
-<div class=\"code dark\"><term-user>hidoverwifi</term-user></div></br></li>
+<div class=\"code dark\"><term-root>hidoverwifi</term-root></div></br></li>
 <li>Type <code>help</code> to display all available commands.</li>
 <li>Type <code>x509</code> to generate a crertificate for the service to use. If no password is provided a strong password will be generated.</li>
 <li>Type <code>public</code> to generate the matching certificate to be used by the android app.</li>
 <li>When everything is configured type <code>exit</code> to persist the changes.</li>
 <li>Now you can either restart the system or run:</br>
-<div class=\"code dark\"><term-root/>systemctl restart HIDoverWifi.service</div></br></li>
+<div class=\"code dark\"><term-root>systemctl restart HIDoverWifi.service</term-root></div></br></li>
 <li>The generated certificate can be found at: <code>/etc/HIDoverWifi/</code></br>
 By default it's named <code>public.p12</code> and the default password is <code>public</code>.</li>
 </ul>
