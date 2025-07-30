@@ -36,7 +36,7 @@
 	</p>
 	<p>
 	<div class=\"code dark\">
-		<term-user/>java -jar ./program.jar -h</br></br>
+		<term-user>java -jar ./program.jar -h</term-user></br></br>
 	This is the programs description.</br></br>
 	&nbsp;-h --help<tab/><tab/><tab/>display this help and exit.</br></br>
 	&nbsp;-a<tab/><tab/><tab/><tab/><tab/><tab/>&nbsp;example arg a</br>

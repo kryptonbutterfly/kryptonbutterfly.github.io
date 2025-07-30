@@ -1,0 +1,63 @@
+{
+	"name": "HID over Wifi",
+	"id": "hidoverwifi",
+	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/HIDoverWifi_android/master/md/icon.svg",
+	"images": [{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/HIDoverWifi_android/master/md/Trackpad.webp",
+		"alt": "The window that functions as a trackpad.",
+		"title": "Trackpad Window"
+		}, {
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/HIDoverWifi_android/master/md/Keyboard.webp",
+		"alt": "The keyboard window.",
+		"title": "Keyboard Window"
+		}, {
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/HIDoverWifi_android/master/md/Settings.webp",
+		"alt": "The settings window.",
+		"title": "Settings Window"
+		}],
+	"info": "An App and a service that enables using your phone as a mouse and keyboard for your pc.",
+	"description": "
+<h2>Requirements</h2>
+<h4>Phone</h4>
+<ul><li>Android 13+</li></ul>
+<h4>Computer</h4>
+<ul><li>A graphical debian based system (requires dpkg &amp; systemd, if missing installs xdotool &amp; jre21)</li></ul>
+<h2>Setup</h2>
+<ul>
+<li>Install the <a href=\"https://github.com/kryptonbutterfly/HIDoverWifi_service/releases/download/v1.0.0/HIDoverWifi.deb\">HIDoverWifi.deb</a> package.</li>
+<li>In order to configure the service run:</br>
+<div class=\"code dark\"><term-user>hidoverwifi</term-user></div></br></li>
+<li>Type <code>help</code> to display all available commands.</li>
+<li>Type <code>x509</code> to generate a crertificate for the service to use. If no password is provided a strong password will be generated.</li>
+<li>Type <code>public</code> to generate the matching certificate to be used by the android app.</li>
+<li>When everything is configured type <code>exit</code> to persist the changes.</li>
+<li>Now you can either restart the system or run:</br>
+<div class=\"code dark\"><term-root/>systemctl restart HIDoverWifi.service</div></br></li>
+<li>The generated certificate can be found at: <code>/etc/HIDoverWifi/</code></br>
+By default it's named <code>public.p12</code> and the default password is <code>public</code>.</li>
+</ul>
+<p>All settings are stored at: <code>/etc/HIDoverWifi/settings.json</code></p>
+
+<h2>App Setup</h2>
+<ul>
+<li>Download and install <a href=\"https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v1.1.0/HIDoverWifi.apk\">HIDoverWifi.apk</a>.</li>
+<li>Copy the public .p12 certificate to your phone.</li>
+<li>Connect to the wifi network your computer is connected to.</li>
+<li>Start the app.</li>
+<li>Open the settings.</li>
+<li>Set <code>Address</code> to the ip of your PC.</li>
+<li>Set the <code>server password</code>.</li>
+<li>Ensure the keepalice interval is > 0 and < then the timeout configured in the service.</li>
+<li>Click <code>Certificate File</code> and select the .p12 certificate.</li>
+<li>Set the <code>Certificate Password</code> (the default password is <code>public</code>).</li>
+</ul>
+",
+	"downloads": [{
+		"name": "HIDoverWifi.deb",
+		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_service/releases/download/v1.0.0/HIDoverWifi.deb"
+	}, {
+		"name": "HIDoverWifi.apk",
+		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v1.1.0/HIDoverWifi.apk"
+	}],
+	"repo_link": "https://github.com/kryptonbutterfly/HIDoverWifi_service?tab=readme-ov-file#hid-over-wifi-service"
+}

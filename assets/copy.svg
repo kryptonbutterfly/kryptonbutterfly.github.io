@@ -1,0 +1,6 @@
+<svg width="32" height="32" version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+	<g fill="#808080" stroke-miterlimit="2" stroke-width="0">
+		<path d="m6 8a4 4 0 0 0 -4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4 -4h-2a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2z" style="paint-order:stroke fill markers"/>
+		<path d="m12 2a4 4 0 0 0 -4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4 -4v-14a4 4 0 0 0 -4 -4h-14v2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2z" style="paint-order:stroke fill markers"/>
+	</g>
+</svg>

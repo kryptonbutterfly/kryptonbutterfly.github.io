@@ -316,7 +316,7 @@ term-user.light {
 }
 term-root:before {
 	color: #606060;
-	content: "#";
+	content: "#  ";
 }
 term-root.light {
 	color: #A0A0A0;
