@@ -17,8 +17,8 @@
 		"name": "CopyCat.jar",
 		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.0/CopyCat.jar"
 	},{
-		"name": "copy-cat-1.0.0.deb",
-		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.0/copy-cat-1.0.0.de"
+		"name": "copycat-1.0.0.deb",
+		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.0/copycat-1.0.0.deb"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/CopyCat?tab=readme-ov-file#copycat"
 }

@@ -116,8 +116,7 @@ function buildPages() {
 }
 
 function build() {
-	for (const button of document.querySelectorAll(".switch-theme"))
-		button.onclick = switchTheme;
+	buildSwitchTheme()
 	for (const button of document.querySelectorAll(".switch-page-home"))
 		button.onclick = (e) => switchPage(e, "home");
 	buildPages();

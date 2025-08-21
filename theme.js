@@ -40,3 +40,9 @@ function switchTheme() {
 	const themeIndex = (themes.indexOf(currentTheme()) + 1) % themes.length;
 	setTheme(themes[themeIndex]);
 }
+
+function buildSwitchTheme() {
+	for (const button of document.querySelectorAll(".switch-theme"))
+		button.onclick = switchTheme;
+}
+
