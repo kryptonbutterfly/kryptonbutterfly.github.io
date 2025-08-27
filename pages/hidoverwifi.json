@@ -24,7 +24,7 @@
 <ul><li>A graphical debian based system (requires dpkg &amp; systemd, if missing installs xdotool &amp; jre21)</li></ul>
 <h2>Setup</h2>
 <ul>
-<li>Install the <a href=\"https://github.com/kryptonbutterfly/HIDoverWifi_service/releases/download/v1.0.0/HIDoverWifi.deb\">HIDoverWifi.deb</a> package.</li>
+<li>Install the <a href=\"https://github.com/kryptonbutterfly/HIDoverWifi_service/releases/download/v2.0.0/HIDoverWifi.deb\">HIDoverWifi.deb</a> package.</li>
 <li>In order to configure the service run:</br>
 <div class=\"code dark\"><term-root>hidoverwifi</term-root></div></br></li>
 <li>Type <code>help</code> to display all available commands.</li>
@@ -40,7 +40,7 @@ By default it's named <code>public.p12</code> and the default password is <code>
 
 <h2>App Setup</h2>
 <ul>
-<li>Download and install <a href=\"https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v1.1.0/HIDoverWifi.apk\">HIDoverWifi.apk</a>.</li>
+<li>Download and install <a href=\"https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v2.0.0/HIDoverWifi.apk\">HIDoverWifi.apk</a>.</li>
 <li>Copy the public .p12 certificate to your phone.</li>
 <li>Connect to the wifi network your computer is connected to.</li>
 <li>Start the app.</li>
@@ -54,10 +54,10 @@ By default it's named <code>public.p12</code> and the default password is <code>
 ",
 	"downloads": [{
 		"name": "HIDoverWifi.deb",
-		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_service/releases/download/v1.0.0/HIDoverWifi.deb"
+		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_service/releases/download/v2.0.0/HIDoverWifi.deb"
 	}, {
 		"name": "HIDoverWifi.apk",
-		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v1.1.0/HIDoverWifi.apk"
+		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v2.0.0/HIDoverWifi.apk"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/HIDoverWifi_service?tab=readme-ov-file#hid-over-wifi-service"
 }
