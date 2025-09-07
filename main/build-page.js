@@ -5,21 +5,10 @@ function buildDescription(description) {
 
 function buildSlideShow(images) {
 	if (!images || images.length === 0) return "";
-	let slideshow = `<div id="slideshow" class="dark">`;
-	if (images.length > 1)
-		slideshow += `
-			<span class="prev">❮</span>
-			<span class="next">❯</span>`;
-	for (let i = 0; i < images.length; i++) {
-		const img = images[i];
-		const lazy = i == 0 ? '': ' loading="lazy"';
-		slideshow += `
-			<div id="slide"${i == 0 ? '' : ' class="invis"'}">
-				<div id="numbertext" class="dark">${i+1}/${images.length}</div>
-				<img id="img" src="${img.src}" alt="${img.alt}" title="${img.title}"${lazy}/>
-			</div>`;
-	}
-	return slideshow + "\n</div>";
+	let imgHTML = "";
+	for (const img of images)
+		imgHTML += `<img src="${img.src}" alt="${img.alt}" title="${img.title}" loading="lazy"/>`;
+	return `<slides- class="dark">${imgHTML}</slides->`;
 }
 
 function buildDownloads(downloads) {
@@ -58,10 +47,6 @@ function addPage(container, data) {
 				<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/${data.name}" title="Github - kryptonbutterfly/${data.name}">
 			</a>${buildDownloads(data.downloads)}
 		</div>`;
-	for (const button of page.querySelectorAll(".prev"))
-		button.onclick = (e) => nextSlide(false);
-	for (const button of page.querySelectorAll(".next"))
-		button.onclick = (e) => nextSlide(true);
 }
 
 function addPreview(target, data) {

@@ -19,7 +19,7 @@ function showPage(target) {
 			page.classList.add("invis");
 	}
 	window.scrollTo(0, 0);
-	showSlide();
+	//showSlide();
 }
 
 function switchPage(event, target) {

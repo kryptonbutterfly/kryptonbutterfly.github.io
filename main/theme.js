@@ -1,6 +1,6 @@
 const themes = ["light", "dark"];
 
-const themedTags = ["code", "syn-type", "syn-var", "syn-fun", "syn-literal", "syn-ann", "syn-ann-id", "syn-comment"];
+const themedTags = ["code", "syn-type", "syn-var", "syn-fun", "syn-literal", "syn-ann", "syn-ann-id", "syn-comment", "carousel-counter"];
 
 function setTheme(theme) {
 	if (!themes.includes(theme))
@@ -30,10 +30,16 @@ function showTheme() {
 }
 
 function changeElementTheme(tag, prev, next) {
-	for (const e of document.querySelectorAll(tag)) {
-		e.classList.remove(prev);
-		e.classList.add(next);
+	function change(element, prev, next) {
+		element.classList.remove(prev);
+		element.classList.add(next);
 	}
+	for (const e of document.querySelectorAll('*'))
+		if (e.shadowRoot)
+			for (const e1 of e.shadowRoot.querySelectorAll(tag))
+				change(e1, prev, next);
+	for (const e of document.getElementsByTagName(tag))
+		change(e, prev, next);
 }
 
 function switchTheme() {
