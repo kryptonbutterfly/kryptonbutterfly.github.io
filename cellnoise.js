@@ -98,7 +98,6 @@ if (!!gl) {
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null)
 
 		gl.useProgram(shaderProgram)
-		console.log(gl.getShaderInfoLog(fragShader))
 		gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer)
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, index_buffer)
 
