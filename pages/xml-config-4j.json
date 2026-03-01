@@ -1,0 +1,13 @@
+{
+	"name": "xmlConfig4J",
+	"id": "xmlConfig4J",
+	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/xmlConfig4J/master/md/icon.svg",
+	"images": [],
+	"info": "A simple to use library for Object de-/serialization to xml-Format.",
+	"description": null,
+	"downloads": [{
+		"name": "xmlConfig4J.jar",
+		"src": "https://github.com/kryptonbutterfly/xmlConfig4J/releases/download/v4.0.0/xmlConfig4J.jar"
+	}],
+	"repo_link": "https://github.com/kryptonbutterfly/xmlConfig4J?tab=readme-ov-file#xmlconfig4j-"
+}
