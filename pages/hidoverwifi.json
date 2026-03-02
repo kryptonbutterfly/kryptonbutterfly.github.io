@@ -45,7 +45,7 @@ By default it's named <code>public.p12</code> and the default password is <code>
 <li>Connect to the wifi network your computer is connected to.</li>
 <li>Start the app.</li>
 <li>Open the settings.</li>
-<li>Set <code>Address</code> to the ip of your PC.</li>
+<li>Set <code>Address</code> to the ip of your PC. <div class=\"code dark\" style=\"margin-top: 0.5em;\"><term-user>ifconfig | grep -B 1 inet</term-user></div></br></li>
 <li>Set the <code>server password</code>.</li>
 <li>Ensure the keepalice interval is > 0 and < then the timeout configured in the service.</li>
 <li>Click <code>Certificate File</code> and select the .p12 certificate.</li>

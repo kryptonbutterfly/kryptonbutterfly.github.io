@@ -13,7 +13,7 @@ function copyToClipboard(btn, text) {
 
 function createContent(content, copy) {
 	return `${content}
-<div style="float:right">
+<div style="float:right; margin-left: 0.4em">
 <span id="copy-message" style="font-size:100%; background:#8888; border:0px; border-radius:15px; padding: 2px 10px;display:none;">Copied!</span>
 <button style="width:16px; height:16px; background-image: url('assets/copy.svg'); background-size: cover; background-color: #0000; border:none; cursor:pointer;"/></div>`;
 }
