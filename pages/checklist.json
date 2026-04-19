@@ -7,6 +7,10 @@
 		"alt": "The main view of the app.",
 		"title": "Main View"
 	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/md/Screenshot_Create_List.webp",
+		"alt": "The view used to create a new List.",
+		"title": "Create List"
+	},{
 		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/md/Screenshot_Edit_Task.webp",
 		"alt": "The view used to create & edit tasks.",
 		"title": "Edit View"
@@ -22,7 +26,7 @@
 	"info": "A primitive checklist app for android.",
 	"downloads": [{
 		"name": "CheckList.apk",
-		"src": "https://github.com/kryptonbutterfly/CheckList/releases/download/v3.0.1/CheckList.apk"
+		"src": "https://github.com/kryptonbutterfly/CheckList/releases/download/v4.1.0/CheckList.apk"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/CheckList?tab=readme-ov-file#checklist"
 }
