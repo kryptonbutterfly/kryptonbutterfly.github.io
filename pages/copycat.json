@@ -15,10 +15,10 @@
 	"description": "An application to generate a qr code from clipboard content or scan a qr code via webcam and add the content to the system clipboard.",
 	"downloads": [{
 		"name": "CopyCat.jar",
-		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.0/CopyCat.jar"
+		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.2/CopyCat.jar"
 	},{
-		"name": "copycat-1.0.0.deb",
-		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.0/copycat-1.0.0.deb"
+		"name": "copycat-1.0.2.deb",
+		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.2/copycat-1.0.2.deb"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/CopyCat?tab=readme-ov-file#copycat"
 }
