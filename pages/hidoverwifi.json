@@ -55,7 +55,7 @@ By default it's named <code>public.p12</code> and the default password is <code>
 
 <h2>App Setup</h2>
 <ul>
-<li>Download and install <a href=\"https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v3.0.0/HIDoverWifi.apk\">HIDoverWifi.apk</a>.</li>
+<li>Download and install <a href=\"https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v3.0.1/HIDoverWifi.apk\">HIDoverWifi.apk</a>.</li>
 <li>Copy the public .p12 certificate to your phone.</li>
 <li>Connect to the wifi network your computer is connected to.</li>
 <li>Start the app.</li>
@@ -75,7 +75,7 @@ By default it's named <code>public.p12</code> and the default password is <code>
 		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_service/releases/download/v3.0.0/HIDoverWifi.deb"
 	}, {
 		"name": "HIDoverWifi.apk",
-		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v3.0.0/HIDoverWifi.apk"
+		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v3.0.1/HIDoverWifi.apk"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/HIDoverWifi_service?tab=readme-ov-file#hid-over-wifi-service"
 }
