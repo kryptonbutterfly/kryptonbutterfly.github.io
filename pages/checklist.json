@@ -3,13 +3,21 @@
 	"id": "checklist",
 	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
 	"images": [{
-		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/md/Screenshot_CheckList.webp",
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/md/Screenshot_TaskList.webp",
 		"alt": "The main view of the app.",
 		"title": "Main View"
 	},{
 		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/md/Screenshot_Create_List.webp",
 		"alt": "The view used to create a new List.",
 		"title": "Create List"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/md/Screenshot_CheckList.webp",
+		"alt": "The main view of the app in issues mode.",
+		"title": "Main View – issues variant"
+	},{
+		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/md/Screenshot_Completed.webp",
+		"alt": "The view used to view completed tasks or restore them.",
+		"title": "Completed View"
 	},{
 		"src": "https://raw.githubusercontent.com/kryptonbutterfly/CheckList/master/md/Screenshot_Edit_Task.webp",
 		"alt": "The view used to create & edit tasks.",
@@ -26,7 +34,7 @@
 	"info": "A primitive checklist app for android.",
 	"downloads": [{
 		"name": "CheckList.apk",
-		"src": "https://github.com/kryptonbutterfly/CheckList/releases/download/v4.1.9/CheckList.apk"
+		"src": "https://github.com/kryptonbutterfly/CheckList/releases/download/v4.2.0/CheckList.apk"
 	}],
 	"repo_link": "https://github.com/kryptonbutterfly/CheckList?tab=readme-ov-file#checklist"
 }
