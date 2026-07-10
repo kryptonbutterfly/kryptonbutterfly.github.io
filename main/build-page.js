@@ -27,12 +27,14 @@ function buildRepos(repos, data) {
 			first = false;
 		else
 			result += "</br>";
-			result += `
-				<a id="app-repo" href="${repo.src}">
-					${repo.name ?? ""}
-					<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/${data.name}" title="Github - kryptonbutterfly/${data.name}">
-				</a>`;
-			}
+		const name = repo.name ?? "";
+		const title = `Github - kryptonbutterfly/${data.name} ${name}`
+		result += `
+			<a id="app-repo" href="${repo.src}">
+				${name}
+				<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="${title}" title="${title}">
+			</a>`;
+		}
 	return result;
 }
 
