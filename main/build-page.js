@@ -19,6 +19,23 @@ function buildDownloads(downloads) {
 	return result;
 }
 
+function buildRepos(repos, data) {
+	let result = "";
+	let first = true;
+	for (const repo of repos) {
+		if (first)
+			first = false;
+		else
+			result += "</br>";
+			result += `
+				<a id="app-repo" href="${repo.src}">
+					${repo.name ?? ""}
+					<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/${data.name}" title="Github - kryptonbutterfly/${data.name}">
+				</a>`;
+			}
+	return result;
+}
+
 function addPage(container, data) {
 	const page = document.createElement("div");
 	page.classList.add("page-content");
@@ -28,24 +45,19 @@ function addPage(container, data) {
 	let icon = "";
 	if (!!data.icon)
 		icon = `<img id="app-icon" src="${data.icon}" alt="${data.name}">`;
-	page.innerHTML = `<table>
-			<tr>
-				<td>
-					${icon}
-				</td>
-				<td>
-					<h2>${data.name}<h2>
-				</td>
-			</tr>
-		</table>
+	page.innerHTML = `<table><tr>
+			<td>${icon}</td>
+			<td><h2>${data.name}<h2></td>
+		</tr></table>
 		<p id="app-info">${data.info}</p>
 		${buildSlideShow(data.images)}
 		${buildDescription(data.description)}
 		<div class="h-sep"></div>
 		<div class="repo">
-			<a href="${data.repo_link}">
-				<img class="dark" id="app-repo-icon" src="https://github.githubassets.com/favicons/favicon-dark.png" alt="Github - kryptonbutterfly/${data.name}" title="Github - kryptonbutterfly/${data.name}">
-			</a>${buildDownloads(data.downloads)}
+			<table style="width: 100%"><tr>
+				<td>${buildDownloads(data.downloads)}<td>
+				<td style="text-align:right">${buildRepos(data.repo_link, data)}</td>
+			<tr></table>
 		</div>`;
 }
 

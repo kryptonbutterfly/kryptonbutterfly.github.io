@@ -50,5 +50,7 @@
 		"name": "tiny-args-parser-3.0.0.jar",
 		"src": "https://github.com/kryptonbutterfly/tinyArgsManager/releases/download/v3.0.0/tiny-args-parser-3.0.0.jar"
 	}],
-	"repo_link": "https://github.com/kryptonbutterfly/tinyArgsManager?tab=readme-ov-file#tinyargsmanager"
+	"repo_link": [{
+		"src": "https://github.com/kryptonbutterfly/tinyArgsManager?tab=readme-ov-file#tinyargsmanager"
+	}]
 }

@@ -8,5 +8,7 @@
 		"name": "generic-lexer.jar",
 		"src": "https://github.com/kryptonbutterfly/generic-lexer/releases/download/v3.0.0/generic-lexer.jar"
 	}],
-	"repo_link": "https://github.com/kryptonbutterfly/generic-lexer#generix-lexer-"
+	"repo_link": [{
+		"src": "https://github.com/kryptonbutterfly/generic-lexer#generix-lexer-"
+	}]
 }

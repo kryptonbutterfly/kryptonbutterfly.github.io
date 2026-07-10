@@ -42,5 +42,7 @@ invocations 11
 		"name": "eclipse build target setup",
 		"src": "https://github.com/kryptonbutterfly/CacheBuilder/releases/download/v3.0.0/cache_builder-3.0.0-setup.zip"
 	}],
-	"repo_link": "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#cachebuilder-"
+	"repo_link": [{
+		"src": "https://github.com/kryptonbutterfly/CacheBuilder?tab=readme-ov-file#cachebuilder-"
+	}]
 }

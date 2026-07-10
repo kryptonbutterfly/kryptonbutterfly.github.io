@@ -52,5 +52,7 @@
 		"name": "TinyTotp-4.6.4.deb",
 		"src": "https://github.com/kryptonbutterfly/TinyTotp/releases/download/v4.6.4/TinyTotp-4.6.4.deb"
 	}],
-	"repo_link": "https://github.com/kryptonbutterfly/TinyTotp?tab=readme-ov-file#tinytotp"
+	"repo_link": [{
+		"src": "https://github.com/kryptonbutterfly/TinyTotp?tab=readme-ov-file#tinytotp"
+	}]
 }

@@ -104,5 +104,7 @@
 		"name": "linear_algebra-4.2.0.jar",
 		"src": "https://github.com/kryptonbutterfly/linearAlgebra/releases/download/v4.2.0/linear_algebra-4.2.0.jar"
 	}],
-	"repo_link": "https://github.com/kryptonbutterfly/linearAlgebra#linearalgebra-"
+	"repo_link": [{
+		"src": "https://github.com/kryptonbutterfly/linearAlgebra#linearalgebra-"
+	}]
 }

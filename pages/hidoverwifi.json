@@ -77,5 +77,11 @@ By default it's named <code>public.p12</code> and the default password is <code>
 		"name": "HIDoverWifi.apk",
 		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_android/releases/download/v3.0.2/HIDoverWifi.apk"
 	}],
-	"repo_link": "https://github.com/kryptonbutterfly/HIDoverWifi_service?tab=readme-ov-file#hid-over-wifi-service"
+	"repo_link": [{
+		"name": "Service",
+		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_service?tab=readme-ov-file#hid-over-wifi-service"
+	}, {
+		"name": "App",
+		"src": "https://github.com/kryptonbutterfly/HIDoverWifi_android#hid-over-wifi-android"
+	}]
 }

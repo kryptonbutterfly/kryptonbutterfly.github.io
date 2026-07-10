@@ -15,5 +15,7 @@
 		"name": "Localizer4J-3.0.1.deb",
 		"src": "https://github.com/kryptonbutterfly/Localizer4J/releases/download/v3.0.1/Localizer4J-3.0.1.deb"
 	}],
-	"repo_link": "https://github.com/kryptonbutterfly/Localizer4J#localizer4j-"
+	"repo_link": [{
+		"src": "https://github.com/kryptonbutterfly/Localizer4J#localizer4j-"
+	}]
 }

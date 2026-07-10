@@ -145,10 +145,16 @@ slides-.light {
 .light ::part(slide-counter) {
 	color: #0A0A0A;
 }
+#app-repo {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0.2em;
+}
 #app-repo-icon {
 	width: 32px;
 	height: 32px;
-	float: right;
+	margin-left: 0.5em;
 	&.light {
 		filter: invert(100%);
 	}

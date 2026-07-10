@@ -20,5 +20,7 @@
 		"name": "copycat-1.0.2.deb",
 		"src": "https://github.com/kryptonbutterfly/CopyCat/releases/download/v1.0.2/copycat-1.0.2.deb"
 	}],
-	"repo_link": "https://github.com/kryptonbutterfly/CopyCat?tab=readme-ov-file#copycat"
+	"repo_link": [{
+		"src": "https://github.com/kryptonbutterfly/CopyCat?tab=readme-ov-file#copycat"
+	}]
 }

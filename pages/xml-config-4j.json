@@ -9,5 +9,7 @@
 		"name": "xmlConfig4J.jar",
 		"src": "https://github.com/kryptonbutterfly/xmlConfig4J/releases/download/v4.1.0/xmlConfig4J.jar"
 	}],
-	"repo_link": "https://github.com/kryptonbutterfly/xmlConfig4J?tab=readme-ov-file#xmlconfig4j-"
+	"repo_link": [{
+		"src": "https://github.com/kryptonbutterfly/xmlConfig4J?tab=readme-ov-file#xmlconfig4j-"
+	}]
 }
