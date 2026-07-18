@@ -1,0 +1,18 @@
+{
+	"name": "TemplateInflator",
+	"id": "templateinflator",
+	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/template-inflator/master/icon.svg",
+	"images": [],
+	"info": "Maven plugin that allows generating files from templates",
+	"description": "",
+	"downloads": [{
+		"name": "template-inflator-2.0.0.jar",
+		"src": "https://github.com/kryptonbutterfly/template-inflator/releases/download/v2.0.0/template-inflator-2.0.0.jar"
+	}, {
+		"name": "template-inflator-2.0.0.pom",
+		"src": "https://github.com/kryptonbutterfly/template-inflator/releases/download/v2.0.0/template-inflator-2.0.0.pom"
+	}],
+	"repo_link": [{
+		"src": "https://github.com/kryptonbutterfly/template-inflator#templateinflator"
+	}]
+}
