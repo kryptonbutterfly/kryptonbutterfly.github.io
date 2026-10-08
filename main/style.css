@@ -200,6 +200,12 @@ div.code {
 	border-collapse: collapse;
 	padding: 0.4em 0.8em;
 }
+high-red {
+	background-color: #ff004418;
+	&.light {
+		background-color: #bd002122;
+	}
+}
 syn-kw {
 	color: #c04e00;
 }

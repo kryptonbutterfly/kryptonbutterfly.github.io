@@ -3,8 +3,8 @@
 	"id": "templateinflator",
 	"icon": "https://raw.githubusercontent.com/kryptonbutterfly/template-inflator/master/icon.svg",
 	"images": [],
-	"info": "Maven plugin that allows generating files from templates",
-	"description": "",
+	"info": "Maven plugin for generating files from templates at build time.",
+	"desc_file": true,
 	"downloads": [{
 		"name": "template-inflator-2.0.0.jar",
 		"src": "https://github.com/kryptonbutterfly/template-inflator/releases/download/v2.0.0/template-inflator-2.0.0.jar"

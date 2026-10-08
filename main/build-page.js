@@ -1,6 +1,28 @@
-function buildDescription(description) {
-	if (!description) return "";
-	return `<p>${description}</p>`
+function buildDescription(data, src) {
+	if (!!data.description) return `<p>${data.description}</p>`;
+	if (!data.desc_file) return "";
+	const descFile = `pages/descriptions/${src}.html`;
+	const xhr = new XMLHttpRequest();
+	xhr.open("GET", descFile);
+	xhr.onreadystatechange = function(){
+		if (this.readyState !== XMLHttpRequest.DONE) return;
+		switch (this.status) {
+			case 200:
+				const contents = document.querySelectorAll("div#content");
+				for (const div of contents) {
+					const srcAttr = div.getAttribute("src");
+					if (srcAttr == src) {
+						div.innerHTML = this.responseText;
+						break;
+					}
+				}
+				break;
+			case 404: console.warn(`${descFile} not found!`); break;
+			default: console.info(`Unhandled response status ${this.status}`);
+		}
+	}
+	xhr.send();
+	return `<div id="content" src="${src}"></div>`;
 }
 
 function buildSlideShow(images) {
@@ -38,7 +60,7 @@ function buildRepos(repos, data) {
 	return result;
 }
 
-function addPage(container, data) {
+function addPage(container, data, src) {
 	const page = document.createElement("div");
 	page.classList.add("page-content");
 	container.appendChild(page);
@@ -53,7 +75,7 @@ function addPage(container, data) {
 		</tr></table>
 		<p id="app-info">${data.info}</p>
 		${buildSlideShow(data.images)}
-		${buildDescription(data.description)}
+		${buildDescription(data, src)}
 		<div class="h-sep"></div>
 		<div class="repo">
 			<table style="width: 100%"><tr>
@@ -86,7 +108,7 @@ function buildPages() {
 		const src = div.getAttribute("src");
 		if (!!src) {
 			const xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
+			xhttp.onreadystatechange = function(){
 				if (this.readyState !== XMLHttpRequest.DONE) return;
 				switch (this.status) {
 					case 200:
@@ -94,7 +116,7 @@ function buildPages() {
 						for (const s of this.responseText.split("\n"))
 							json += " " + s.trimStart();
 						const data = JSON.parse(json);
-						addPage(page_container, data);
+						addPage(page_container, data, src);
 						pages.set(data.id, data.name);
 						addPreview(div, data);
 						const page = currPage();
@@ -103,11 +125,11 @@ function buildPages() {
 							showPage();
 						}
 						break;
-					case 404: console.error(`${src} not found!`); break;
+					case 404: console.error(`pages/${src}.json not found!`); break;
 					default: console.info(`Unhandled response status ${this.status}`);
 				}
 			}
-			xhttp.open("GET", src);
+			xhttp.open("GET", `pages/${src}.json`);
 			xhttp.send();
 		} else
 			console.warn(`${div} has id="include" but misses the attribute "src"`);

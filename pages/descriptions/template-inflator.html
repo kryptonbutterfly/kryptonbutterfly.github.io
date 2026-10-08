@@ -1,0 +1,439 @@
+<h2>Features</h2>
+<ul>
+	<li>Generate source, test, and resource files from templates</li>
+	<li>Support shared constants and per-variant values</li>
+	<li>Write output files to configurable directories</li>
+	<li>Integrate with these Maven build phases:
+		<ul>
+			<li><code>generate-sources</code></li>
+			<li><code>generate-test-sources</code></li>
+			<li><code>generate-resources</code></li>
+			<li><code>generate-test-resources</code></li>
+		</ul>
+	</li>
+</ul>
+<p>
+For each variant, the plugin resolves placeholders in controller values and templates, then generates the corresponding output file.
+</p>
+<h2>Getting Started</h2>
+<ol>
+	<li><b>Download</b>
+		<ul>
+			<li>
+				<a href="https://github.com/kryptonbutterfly/template-inflator/releases/download/v2.0.0/template-inflator-2.0.0.jar">template-inflator-2.0.0.jar</a>
+			</li>
+			<li>
+				<a href="https://github.com/kryptonbutterfly/template-inflator/releases/download/v2.0.0/template-inflator-2.0.0.pom">template-inflator-2.0.0.pom</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		open the terminal and navigate into your download folder, then run:
+		<div class="code dark">
+			<term-user>mvn install:install-file -Dfile=template-inflator-2.0.0.jar -DpomFile=template-inflator-2.0.0.pom</term-user>
+		</div>
+	</li>
+</ol>
+<h2>How it works</h2>
+<p>TemplateInflator reads a controller file, combines each variant with each
+file definition, resolves placeholders using constants first and variant
+values second, then writes the rendered template to the configured output path.</p>
+<ol>
+	<li>
+		<b>Read shared constants</b></br>
+		<code>constants</code> defines key-value pairs available to all variants and templates.
+	</li>
+	<li>
+		<b>Build variant/file combinations</b></br>
+		<code>variants</code> defines one or more sets of values.</br>
+		<code>files</code> defines the templates to use and where the output should be written to.</br>
+		TemplateInflator combines every variant with every file.
+	</li>
+	<li>
+		<b>Resolve placeholders and generate output</b></br>
+		For each variant/file combination:</br>
+		<ul>
+			<li>all <code>${key}</code> placeholders in <code>variants</code> and <code>files</code> are first replaced using values from <code>constants</code></li>
+			<li>then <code>${key}</code> placeholdes from the selected variant are applied</li>
+			<li>the referenced template is loaded</li>
+			<li>
+				placeholders in the template are replaced using the same order:</br>
+				<ol>
+					<li>constants</li>
+					<li>varian values</li>
+				</ol>
+			</li>
+			<li>the final content is written to the file defined by <code>dest</code> and <code>ext</code></li>
+		</ul>
+	</li>
+</ol>
+<h3>Controller schema</h3>
+<table class=table>
+	<tr><th>Field</th><th>Description</th></tr>
+	<tr>
+		<td><code>constants</code></td>
+		<td>Key-value pairs shared by all variants</td>
+	</tr>
+	<tr>
+		<td><code>variants</code></td>
+		<td>One or more objects containing per-variant values</td>
+	</tr>
+	<tr>
+		<td><code>files</code></td>
+		<td>Tenpokate definitions to render</td>
+	</tr>
+</table>
+<p>
+Each object in <code>files</code> must define:
+</p>
+<table class=table>
+	<tr><th>Field</th><th>Description</th></tr>
+	<tr>
+		<td><code>dest</code></td>
+		<td>Output path, starting with Java package name, followed by <code>/</code>, followed by the output file name</td>
+	</tr>
+	<tr>
+		<td><code>ext</code></td>
+		<td>Extension of the generated file</td>
+	</tr>
+	<tr>
+		<td><code>name</code></td>
+		<td>Template file name, including its extension</td>
+	</tr>
+</table>
+<h3>Placeholder resolution order</h3>
+Placeholders are resolved in this order:
+<ol>
+	<li><code>constants</code></li>
+	<li><code>variant</code> values</li>
+</ol>
+<p>
+If a key is defined in both, the constant value is applied. If a placeholder cannot be resolved, it remains unchanged as plain text.
+</p>
+<p>
+If a file already exists, it will be overwritten. Do not use a normal source folder as the output directory.
+</p>
+<h2>Example</h2>
+<h3>Project structure</h3>
+<div class="code dark"><pre> .
+├── pom.xml
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   ├── generated/
+│   │   └── templates/
+│   │       ├── Example1.javatpl
+│   │       └── source_controller.json
+│   └── test/
+│       ├── java/
+│       └── templates/
+│           ├── Example1Test.javatpl
+│           └── test_controller.json
+└── target/
+    ├── classes/
+    ├── …
+    └── test-classes/</pre></div>
+<p>
+Generated files can be written to directories such as:
+</p>
+<ul>
+	<li><code>src/main/generated</code> for main sources</li>
+	<li><code>src/test/generated</code> for test sources</li>
+</ul>
+<h3>Files</h3>
+<details>
+	<summary><code>pom.xml</code></summary>
+	</br>
+	<div class="code dark">
+		<p style="white-space: pre-wrap; font-size: 70%;">
+&lt;<syn-literal>project</syn-literal>&gt;
+  …
+  <syn-literal>&lt;properties&gt;</syn-literal>
+    <syn-literal>&lt;generatedDir&gt;</syn-literal><syn-ann-id>${basedir}</syn-ann-id>/src/main/generated<syn-literal>&lt;/generatedDir&gt;</syn-literal>
+    <syn-literal>&lt;generatedTestDir&gt;</syn-literal><syn-ann-id>${basedir}</syn-ann-id>/src/test/generated<syn-literal>&lt;/generatedTestDir&gt;</syn-literal>
+    …
+  <syn-literal>&lt;/properties&gt;</syn-literal>
+  …
+  <syn-literal>&lt;build&gt;</syn-literal>
+    …
+    <syn-literal>&lt;plugins&gt;</syn-literal>
+      <syn-literal>&lt;plugin&gt;</syn-literal> <syn-comment>&lt;!-- This plugin --&gt;</syn-comment>
+        <syn-literal>&lt;groupId&gt;</syn-literal>kryptonbutterfly<syn-literal>&lt;/groupId&gt;</syn-literal>
+        <syn-literal>&lt;artifactId&gt;</syn-literal>template-inflator<syn-literal>&lt;/artifactId&gt;</syn-literal>
+        <syn-literal>&lt;version&gt;</syn-literal>2.0.0<syn-literal>&lt;/version&gt;</syn-literal>
+        <syn-literal>&lt;executions&gt;</syn-literal>
+          <syn-literal>&lt;execution&gt;</syn-literal> <syn-comment>&lt;!-- This execution configures how tests will be generated --&gt;</syn-comment>
+            <syn-literal>&lt;id&gt;</syn-literal>inflate-test-templates<syn-literal>&lt;/id&gt;</syn-literal>
+            <syn-literal>&lt;phase&gt;</syn-literal>generate-test-sources<syn-literal>&lt;/phase&gt;</syn-literal>
+            <syn-literal>&lt;goals&gt;</syn-literal>
+              <syn-literal>&lt;goal&gt;</syn-literal>inflate<syn-literal>&lt;/goal&gt;</syn-literal>
+            <sys-literal>&lt;/goals&gt;</syn-literal>
+            <syn-literal>&lt;configuration&gt;</syn-literal>
+              <syn-comment>&lt;!-- The directory containing the templates that shall be used to generate tests. --&gt;</syn-comment>
+              <syn-literal>&lt;templates&gt;</syn-literal><syn-ann-id>${project.basedir}</syn-ann-id>/src/test/templates<syn-literal>&lt;/templates&gt;</syn-literal>
+              <syn-comment>&lt;!-- The file that controls how the templates will be inflated. --&gt;</syn-comment>
+              <syn-literal>&lt;controller&gt;</syn-literal><syn-ann-id>${project.basedir}</syn-ann-id>/src/test/templates/test_controller.json<syn-literal>&lt;/controller&gt;</syn-literal>
+              <syn-comment>&lt;!-- The directory to save generated files to. --&gt;</syn-comment>
+              <syn-literal>&lt;output&gt;</syn-literal><syn-ann-id>${generatedTestDir}</syn-ann-id><syn-literal>&lt;/output&gt;</syn-literal>
+            <syn-literal>&lt;/configuration&gt;</sny-literal>
+          <syn-literal>&lt;/execution&gt;</syn-literal>
+          <syn-literal>&lt;execution&gt;</syn-literal><syn-comment>&lt;!-- This execution configures how source files will be generated --&gt;</syn-comment>
+            <syn-litearl>&lt;id&gt;</syn-literal>inflate-templates<syn-literal>&lt;/id&gt;</syn-literal>
+            <syn-literal>&lt;phase&gt;</syn-literal>generate-sources<syn-literal>&lt;/phase&gt;</syn-literal>
+            <syn-literal>&lt;goals&gt;</syn-literal>
+              <syn-literal>&lt;goal&gt;</syn-literal>inflate<syn-literal>&lt;/goal&gt;</syn-literal>
+            <syn-literal>&lt;/goals&gt;</syn-literal>
+            <syn-literal>&lt;configuration&gt;</syn-literal>
+              <syn-comment>&lt;!-- The directory containing the templates that shall be used to generate source files. --&gt;</syn-comment>
+              <syn-literal>&lt;templates&gt;</syn-literal><syn-ann-id>${project.basedir}</syn-ann-id>/src/main/templates<syn-literal>&lt;/templates&gt;</syn-literal>
+              <syn-comment>&lt;!-- The file that controls how the templates will be inflated. --></syn-comment>
+              <syn-literal>&lt;controller&gt;</syn-literal><syn-ann-id>${project.basedir}</syn-ann-id>/src/main/templates/source_controller.json<syn-literal>&lt;/controller&gt;</syn-literal>
+              <syn-comment>&lt;!-- The directory to save generated files to. --&gt;</syn-comment>
+              <syn-literal>&lt;output&gt;</syn-literal><syn-ann-id>${generatedDir}</syn-ann-id><syn-literal>&lt;/output&gt;</syn-literal>
+            <syn-literal>&lt;/configuration&gt;</syn-literal>
+          <syn-literal>&lt;/execution&gt;</syn-literal>
+          <syn-comment>&lt;!-- you can add more executions if needed --&gt;</syn-comment>
+        <syn-literal>&lt;/executions&gt;</syn-literal>
+      <syn-literal>&lt;/plugin&gt;</syn-literal>
+      <syn-literal>&lt;plugin&gt;</syn-literal> <syn-comment>&lt;!-- build-helper-maven-plugin is required so the generated files will be used in your build. --&gt;</syn-comment>
+        <syn-literal>&lt;groupId&gt;</syn-literal>org.codehaus.mojo<syn-literal>&lt;/groupId&gt;</syn-literal>
+        <syn-literal>&lt;artifactId&gt;</syn-literal>build-helper-maven-plugin<syn-literal>&lt;/artifactId&gt;</syn-literal>
+        <syn-literal>&lt;version&gt;</syn-literal>3.6.0<syn-literal>&lt;/version&gt;</syn-literal>
+        <syn-literal>&lt;executions&gt;</syn-literal>
+          <syn-literal>&lt;execution&gt;</syn-literal>
+            <syn-literal>&lt;id&gt;</syn-literal>add-generated-test-sources<syn-literal>&lt;/id&gt;</syn-literal>
+            <syn-literal>&lt;phase&gt;</syn-literal>generate-test-sources<syn-literal>&lt;/phase&gt;</syn-literal>
+            <syn-literal>&lt;goals&gt;</syn-literal>
+              <syn-literal>&lt;goal&gt;</syn-literal>add-test-source<syn-literal>&lt;/goal&gt;</syn-literal>
+            <syn-literal>&lt;/goals&gt;</syn-literal>
+            <syn-literal>&lt;configuration&gt;</syn-literal>
+              <syn-literal>&lt;sources&gt;</syn-literal>
+                <syn-literal>&lt;source&gt;</syn-literal><syn-ann-id>${generatedTestDir}</syn-ann-id><syn-literal>&lt;/source&gt;</syn-literal>
+              <syn-literal>&lt;/sources&gt;</syn-literal>
+            <syn-literal>&lt;/configuration&gt;</syn-literal>
+          <syn-literal>&lt;/execution&gt;</syn-literal>
+          <syn-literal>&lt;execution&gt;</syn-literal>
+            <syn-literal>&lt;id&gt;</syn-literal>add-generated-sources<syn-literal>&lt;/id&gt;</syn-literal>
+            <syn-literal>&lt;phase&gt;</syn-literal>generate-sources<syn-literal>&lt;/phase&gt;</syn-literal>
+            <syn-literal>&lt;goals&gt;</syn-literal>
+              <syn-literal>&lt;goal&gt;</syn-literal>add-source<syn-literal>&lt;/goal&gt;</syn-literal>
+            <syn-literal>&lt;/goals&gt;</syn-literal>
+            <syn-literal>&lt;configuration&gt;</syn-literal>
+              <syn-literal>&lt;sources&gt;</syn-literal>
+                <syn-literal>&lt;source&gt;</syn-literal><syn-ann-id>${generatedDir}</syn-ann-id><syn-literal>&lt;/source&gt;</syn-literal>
+              <syn-literal>&lt;/sources&gt;</syn-literal>
+            <syn-literal>&lt;/configuration&gt;</syn-literal>
+          <syn-literal>&lt;/execution&gt;</syn-literal>
+        <syn-literal>&lt;/executions&gt;</syn-literal>
+      <syn-literal>&lt;/plugin&gt;</syn-literal>
+      …
+    <syn-literal>&lt;/plugins&gt;</syn-literal>
+  <syn-literal>&lt;/build&gt;</syn-literal>
+<syn-literal>&lt;/project&gt;</syn-literal>
+		</p>
+	</div>
+</details>
+
+<details>
+  <summary><code>source_controller.json</code></summary>
+	</br>
+	<div class="code dark">
+		<p style="white-space: pre-wrap;">
+[{
+    <syn-var>"constants"</syn-var>: {
+        <syn-var>"base"</syn-var>: <syn-literal>"com.example"</syn-literal>
+    },
+    <syn-var>"variants"</syn-var>: [{
+        <syn-var>"type"</syn-var>: <syn-literal>"int"</syn-literal>,
+        <syn-var>"package"</syn-var>: <syn-literal>"<syn-ann-id>${base}</syn-ann-id>"</syn-literal>
+    }, {
+        <syn-var>"type"</syn-var>: <syn-literal>"float"</syn-literal>,
+        <syn-var>"package"</syn-var>: <syn-literal>"<syn-ann-id>${base}</syn-ann-id>"</syn-literal>
+    }],
+    <syn-var>"files"</syn-var>: [{
+        <syn-var>"dest"</syn-var>: <syn-literal>"<syn-ann-id>${package}</syn-ann-id>/Example1_<syn-ann-id>${type}"</syn-literal>,
+        <syn-var>"ext"</syn-var>: <syn-literal>".java"</syn-literal>,
+        <syn-var>"name"</syn-var>: <syn-literal>"Example1.javatpl"</syn-literal>
+    }]
+}]
+		</p>
+	</div>
+</details>
+<details>
+  <summary><code>test_controller.json</code></summary>
+  </br>
+  <div class="code dark">
+    <p style="white-space: pre-wrap;">
+[{
+    <syn-var>"constants"</syn-var>: {
+        <syn-var>"base"</syn-var>: <syn-literal>"test.com.example"</syn-literal>
+    },
+    <syn-var>"variants"</syn-var>: [{
+        <syn-var>"type"</syn-var>: <syn-literal>"int"</syn-literal>,
+        <syn-var>"package"</syn-var>: <syn-literal>"<syn-ann-id>${base}</syn-ann-id>"</syn-literal>
+    }, {
+        <syn-var>"type"</syn-var>: <syn-literal>"float"</syn-literal>,
+        <syn-var>"package"</syn-var>: <syn-literal>"<syn-ann-id>${base}</syn-ann-id>"</syn-literal>
+    }],
+    <syn-var>"files"</syn-var>: [{
+        <syn-var>"dest"</syn-var>: <syn-literal>"<syn-ann-id>${package}</syn-ann-id>/Example1_<syn-ann-id>${type}</syn-ann-id>_test"</syn-literal>,
+        <syn-var>"ext"</syn-var>: <syn-literal>".java"</syn-literal>,
+        <syn-var>"name"</syn-var>: <syn-literal>"Example1Test.javatpl"</syn-literal>
+    }]
+}]
+    </p>
+  </div>
+</details>
+<details>
+  <summary><code>Example1.javatpl</code></summary>
+  </br>
+  <div class="code dark">
+    <p style="white-space: pre-wrap;">
+<syn-kw>package</syn-kw> <high-red>${package}</high-red>;
+
+<syn-kw>public class</syn-kw> <syn-type>Example1_<high-red>${type}</high-red></syn-type> {
+    <syn-kw>public static</syn-kw> <syn-type><high-red>${type}</high-red></syn-type> <syn-fun>add</syn-fun>(<syn-type><high-red>${type}</high-red></syn-type> <syn-var>a</syn-var>, <syn-type><high-red>${type}</high-red></syn-type> <syn-var>b</syn-var>) {
+        <syn-kw>return</syn-kw> <syn-var>a</syn-var> + <syn-var>b</syn-var>;
+    }
+
+    <syn-kw>public static</syn-kw> <syn-type><high-red>${type}</high-red></syn-type> <syn-fun>subtract</syn-fun>(<syn-type><high-red>${type}</high-red></syn-type> <syn-var>a</syn-var>, <syn-type><high-red>${type}</high-red></syn-type> <syn-var>b</syn-var>) {
+        <syn-kw>return</syn-kw> <syn-var>a</syn-var> - <syn-var>b</syn-var>;
+    }
+}
+    </p>
+  </div>
+</details>
+<details>
+  <summary><code>Example1Test.javatpl</code></summary>
+  </br>
+  <div class="code dark">
+    <p style="white-space: pre-wrap;">
+<syn-kw>package</syn-kw> <high-red>${package}</high-red>;
+
+<syn-kw>import static</syn-kw> org.junit.jupiter.api.Assertions.*;
+<syn-kw>import</syn-kw> org.junit.jupiter.api.Test;
+
+<syn-kw>import</syn-kw> com.example.*;
+
+<syn-kw>public class</syn-kw> <syn-type>Example1_<high-red>${type}</high-red>_test</syn-type> {
+    <syn-ann>@Test</syn-ann>
+    <syn-kw>public</syn-kw> <syn-type>void</syn-type> <syn-fun>testAdd</syn-fun>() {
+        <syn-type><high-red>${type}</high-red></syn-type> <syn-var>left</syn-var> = <syn-literal>2</syn-literal>;
+        <syn-type><high-red>${type}</high-red></syn-type> <syn-var>right</syn-var> = <syn-literal>3</syn-literal>;
+        <syn-type><high-red>${type}</high-red></syn-type> <syn-var>sum</syn-var> = <syn-type>Example1_<high-red>${type}</high-red></syn-type>.<syn-fun>add</syn-fun>(<syn-var>left</syn-var>, <syn-var>right</syn-var>);
+        <syn-fun>assertEquals</syn-fun>(<syn-var>left</syn-var> + <syn-var>right</syn-var>, <syn-var>sum</syn-var>);
+    }
+
+    <syn-ann>@Test</syn-ann>
+    <syn-kw>public</syn-kw> <syn-type>void</syn-type> <syn-fun>testSubtract</syn-fun>() {
+        <syn-type><high-red>${type}</hight-red></syn-type> <syn-var>left</syn-var> = <syn-literal>2</syn-literal>;
+        <syn-type><high-red>${type}</high-red></syn-type> <syn-var>right</syn-var> = <syn-literal>3</syn-literal>;
+        <syn-type><high-red>${type}</high-red></syn-type> <syn-var>diff</syn-var> = <syn-type>Example1_<high-red>${type}</high-red></syn-type>.<syn-fun>subtract</syn-fun>(<syn-var>left</syn-var>, <syn-var>right</syn-var>);
+        <syn-fun>assertEquals</syn-fun>(<syn-var>left</syn-var> - <syn-var>right</syn-var>, <syn-var>diff</syn-var>);
+    }
+}
+    </p>
+  </div>
+</details>
+<h3>Generated files</h3>
+<details>
+  <summary><code>src/main/generated/com/example/Example1_int.java</code></summary>
+  </br>
+  <div class="code dark">
+    <p style="white-space: pre-wrap;">
+<syn-kw>package</syn-kw> com.example;
+
+<syn-kw>public class</syn-kw> <syn-type>Example1_int</syn-type> {
+    <syn-kw>public static</syn-kw> <syn-type>int</syn-type> <syn-fun>add</syn-fun>(<syn-type>int</syn-type> <syn-var>a</syn-var>, <syn-type>int</syn-type> <syn-var>b</syn-var>) {
+        <syn-kw>return</syn-kw> <syn-var>a</syn-var> + <syn-var>b</syn-var>;
+    }
+
+    <syn-kw>public static</syn-kw> <syn-type>int</syn-type> <syn-fun>subtract</syn-fun>(<syn-type>int</syn-type> <syn-var>a</syn-var>, <syn-type>int</syn-type> <syn-var>b</syn-var>) {
+        <syn-kw>return</syn-kw> <syn-var>a</syn-var> - <syn-var>b</syn-var>;
+    }
+}
+  </div>
+</details>
+<details>
+  <summary><code>src/main/generated/com/example/Example1_float.java</code></summary>
+  </br>
+  <div class="code dark">
+    <p style="white-space: pre-wrap;">
+<syn-kw>package</syn-kw> com.example;
+
+<syn-kw>public class</syn-kw> <syn-type>Example1_float</syn-type> {
+    <syn-kw>public static</syn-kw> <syn-type>float</syn-type> <syn-fun>add</syn-fun>(<syn-type>float</syn-type> <syn-var>a</syn-var>, <syn-type>float</syn-type> <syn-var>b</syn-var>) {
+        <syn-kw>return</syn-kw> <syn-var>a</syn-var> + <syn-var>b</syn-var>;
+    }
+
+    <syn-kw>public static</syn-kw> <syn-type>float</syn-type> <syn-fun>subtract</syn-fun>(<syn-type>float</syn-type> <syn-var>a</syn-var>, <syn-type>float</syn-type> <syn-var>b</syn-var>) {
+        <syn-kw>return</syn-kw> <syn-var>a</syn-var> - <syn-var>b</syn-var>;
+    }
+}
+    </p>
+  </div>
+</details>
+<details>
+  <summary><code>src/test/generated/test/com/example/Example1_int_test.java</code></summary>
+  </br>
+  <div class="code dark">
+    <p style="white-space: pre-wrap;">
+<syn-kw>package</syn-kw> test.com.example;
+
+<syn-kw>import static</syn-kw> org.junit.jupiter.api.Assertions.*;
+<syn-kw>import</syn-kw> org.junit.jupiter.api.Test;
+
+<syn-kw>import</syn-kw> com.example.*;
+
+<syn-kw>public class</syn-kw> <syn-type>Example1_int_test</syn-type> {
+    <syn-ann>@Test</syn-ann>
+    <syn-kw>public</syn-kw> <syn-type>void</syn-type> <syn-fun>testAdd</syn-fun>() {
+        <syn-type>int</syn-type> <syn-var>left</syn-var> = <syn-literal>2</syn-literal>;
+        <syn-type>int</syn-type> <syn-var>right</syn-var> = <syn-literal>3</syn-literal>;
+        <syn-type>int</syn-type> <syn-var>sum</syn-var> = <syn-type>Example1_int</syn-type>.<syn-fun>add</syn-fun>(<syn-var>left</syn-var>, <syn-var>right</syn-var>);
+        <syn-fun>assertEquals</syn-fun>(<syn-var>left</syn-var> + <syn-var>right</syn-var>, <syn-var>sum</syn-var>);
+    }
+
+    <syn-ann>@Test</syn-ann>
+    <syn-kw>public</syn-kw> <syn-type>void</syn-type> <syn-fun>testSubtract</syn-fun>() {
+        <syn-type>int</syn-type> <syn-var>left</syn-var> = <syn-literal>2</syn-literal>;
+        <syn-type>int</syn-type> <syn-var>right</syn-var> = <syn-literal>3</syn-literal>;
+        <syn-type>int</syn-type> <syn-var>diff</syn-var> = <syn-type>Example1_int</syn-type>.<syn-fun>subtract</syn-fun>(<syn-var>left</syn-var>, <syn-var>right</syn-var>);
+        <syn-fun>assertEquals</syn-fun>(<syn-var>left</syn-var> - <syn-var>right</syn-var>, <syn-var>diff</syn-var>);
+    }
+}
+    </p>
+  </div>
+</details>
+<details>
+  <summary><code>src/test/generated/test/com/example/Example1_float_test.java</code></summary>
+  </br>
+  <div class="code dark">
+    <p style="white-space: pre-wrap;">
+<syn-kw>package</syn-kw> test.com.example;
+
+<syn-kw>import static</syn-kw> org.junit.jupiter.api.Assertions.*;
+<syn-kw>import</syn-kw> org.junit.jupiter.api.Test;
+
+<syn-kw>import</syn-kw> com.example.*;
+
+<syn-kw>public class</syn-kw> <syn-type>Example1_float_test</syn-type> {
+    <syn-ann>@Test</syn-ann>
+    <syn-kw>public</syn-kw> <syn-type>void</syn-type> <syn-fun>testAdd</syn-fun>() {
+        <syn-type>float</syn-type> <syn-var>left</syn-var> = <syn-literal>2</syn-literal>;
+        <syn-type>float</syn-type> <syn-var>right</syn-var> = <syn-literal>3</syn-literal>;
+        <syn-type>float</syn-type> <syn-var>sum</syn-var> = <syn-type>Example1_float</syn-type>.<syn-fun>add</syn-fun>(<syn-var>left</syn-var>, <syn-var>right</syn-var>);
+        <syn-fun>assertEquals</syn-fun>(<syn-var>left</syn-var> + <syn-var>right</syn-var>, <syn-var>sum</syn-var>);
+    }
+
+    <syn-ann>@Test</syn-ann>
+    <syn-kw>public</syn-kw> <syn-type>void</syn-type> <syn-fun>testSubtract</syn-fun>() {
+        <syn-type>float</syn-type> <syn-var>left</syn-var> = <syn-literal>2</syn-literal>;
+        <syn-type>float</syn-type> <syn-var>right</syn-var> = <syn-literal>3</syn-literal>;
+        <syn-type>float</syn-type> <syn-var>diff</syn-var> = <syn-type>Example1_float</syn-type>.<syn-fun>subtract</syn-fun>(<syn-var>left</syn-var>, <syn-var>right</syn-var>);
+        <syn-fun>assertEquals</syn-fun>(<syn-var>left</syn-var> - <syn-var>right</syn-var>, <syn-var>diff</syn-var>);
+    }
+}
+    </p>
+  </div>
+</details>
